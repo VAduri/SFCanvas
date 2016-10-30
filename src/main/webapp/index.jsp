@@ -11,7 +11,7 @@
                 if(data.status == 200){
                     var signedRequest = data.payload.response;
                     var part = signedRequest.split('.')[1];
-                    alert(venkatiiiiiiiiiiii"");
+                    alert("venkatiiiiiiiiiiii");
 		    var obj = JSON.parse(Sfdc.canvas.decode(part));
                     
                 }
