@@ -6,14 +6,14 @@
   </head>
   <body>
     <script>
-	function refreshSR(e){
-            	Sfdc.canvas.client.refreshSignedRequest(function(data){
+	function refreshSR(){
+alert("in1...") ;            
+	Sfdc.canvas.client.refreshSignedRequest(function(data){
                           if(data.status == 200){
 	                    var signedRequest = data.payload.response;
 	                    var part = signedRequest.split('.')[1];
 	                    var obj = JSON.parse(Sfdc.canvas.decode(part));
-	                    Sfdc.canvas.byId("refresh_sr").innerHTML =JSON.stringify(obj);
-			   alert(obj) ;                
+	                    alert(obj) ;                
 }
             });
         }
