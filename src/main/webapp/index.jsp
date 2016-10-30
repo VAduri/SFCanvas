@@ -7,7 +7,7 @@
   <body>
     <script>
 	function refreshSR(){
-alert("in1...") ;            
+          
 	Sfdc.canvas.client.refreshSignedRequest(function(data){
                           if(data.status == 200){
 	                    var signedRequest = data.payload.response;
@@ -63,9 +63,7 @@ Sfdc.canvas(function() {
   
 });
 
-Sfdc.canvas.onReady(function(){
-        refreshSR();
-    });
+
 
 </script>
     <h1>Venkata Aduri OAuth2.0 Play ground Example</h1>
