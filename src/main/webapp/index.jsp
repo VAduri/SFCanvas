@@ -57,9 +57,10 @@ Sfdc.canvas(function() {
     Sfdc.canvas.byId("oauth").innerHTML = Sfdc.canvas.oauth.token();
     var profile = Sfdc.canvas.byId("profile");
     profile.onclick = profileHandler;
-  }
+    refresh.onclick=refreshSR;  
+}
   login.onclick = loginHandler;
-  refresh.onclick=refreshSR;
+  
 });
 
 Sfdc.canvas.onReady(function(){
