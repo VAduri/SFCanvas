@@ -13,8 +13,8 @@
 	                    var signedRequest = data.payload.response;
 	                    var part = signedRequest.split('.')[1];
 	                    var obj = JSON.parse(Sfdc.canvas.decode(part));
-	                alert("raja") ;      
-			alert(obj) ;                
+	                    alert("raja") ;      
+			    alert(obj) ;                
 }
             });
         }
@@ -58,7 +58,7 @@ Sfdc.canvas(function() {
     Sfdc.canvas.byId("oauth").innerHTML = Sfdc.canvas.oauth.token();
     var profile = Sfdc.canvas.byId("profile");
     profile.onclick = profileHandler;
-    refresh.onclick=refreshSR;  
+      
 }
   login.onclick = loginHandler;
   
