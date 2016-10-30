@@ -1,25 +1,21 @@
 <html>
   <head>
   <script type="text/javascript"
-    src="https://na16.salesforce.com/canvas/sdk/js/28.0/canvas-all.js">
+    src="https://na16.salesforce.com/canvas/sdk/js/37.0/canvas-all.js">
   </script>
   </head>
   <body>
     <script>
 	function refreshSR(){
-         
-	Sfdc.canvas.client.refreshSignedRequest(function(data){
-alert("raja3333333344444") ;                          
-if(data.status == 200){
-alert("raja33333333") ;	                  
-  var signedRequest = data.payload.response;
-	                    var part = signedRequest.split('.')[1];
-	                   alert("raja111") ;       
-			   var obj = JSON.parse(Sfdc.canvas.decode(part));
-	                    alert("raja2222") ;      
-			    alert(obj) ;                
+Sfdc.canvas.client.refreshSignedRequest(function(data) {
+if (data.status === 200) {
+var signedRequest = data.payload.response;
+var part = signedRequest.split('.')[1];
+alert("yenkataooo");
+var obj = JSON.parse(Sfdc.canvas.decode(part));
 }
-            });
+}
+
         }
 
 
