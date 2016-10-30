@@ -7,13 +7,14 @@
   <body>
     <script>
 	function refreshSR(){
-          alert("I am here");
+         
 	Sfdc.canvas.client.refreshSignedRequest(function(data){
                           if(data.status == 200){
 	                    var signedRequest = data.payload.response;
 	                    var part = signedRequest.split('.')[1];
 	                    var obj = JSON.parse(Sfdc.canvas.decode(part));
-	                    alert(obj) ;                
+	                alert("raja") ;      
+			alert(obj) ;                
 }
             });
         }
@@ -72,7 +73,6 @@ Sfdc.canvas(function() {
     <div>
       <a id="login" href="#">Login</a><br/>
       <a id="profile" href="#">My Chatter Profile</a><br />
-     <a id="refresh1" href="#" onclick="refreshSR();" </a><br />
     </div>
     <textarea id="chatter_profile" rows="20" cols="80"></textarea>
     <textarea id="refresh_sr" rows="4" cols="80"></textarea>
