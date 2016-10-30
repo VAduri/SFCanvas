@@ -7,7 +7,7 @@
   <body>
     <script>
 	function refreshSR(){
-          
+          alert("I am here");
 	Sfdc.canvas.client.refreshSignedRequest(function(data){
                           if(data.status == 200){
 	                    var signedRequest = data.payload.response;
