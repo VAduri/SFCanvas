@@ -12,7 +12,7 @@
                     var signedRequest = data.payload.response;
                     var part = signedRequest.split('.')[1];
                     var obj = JSON.parse(Sfdc.canvas.decode(part));
-                    alert(obj);  
+                    alert(data); 
                 }
             });
         }
