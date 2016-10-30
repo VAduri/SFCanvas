@@ -6,6 +6,19 @@
   </head>
   <body>
     <script>
+	function refreshSR(){
+            	Sfdc.canvas.client.refreshSignedRequest(function(data){
+                          if(data.status == 200){
+	                    var signedRequest = data.payload.response;
+	                    var part = signedRequest.split('.')[1];
+	                    var obj = JSON.parse(Sfdc.canvas.decode(part));
+	                    Sfdc.canvas.byId("refresh_sr").innerHTML =JSON.stringify(obj);
+			   alert(obj) ;                
+}
+            });
+        }
+
+
 function profileHandler(e) {
   var profileUrl = Sfdc.canvas.oauth.instance() +
     "/services/data/v28.0/chatter/users/me";
@@ -46,7 +59,13 @@ Sfdc.canvas(function() {
     profile.onclick = profileHandler;
   }
   login.onclick = loginHandler;
+  refresh.onclick=refreshSR;
 });
+
+Sfdc.canvas.onReady(function(){
+        refreshSR();
+    });
+
 </script>
     <h1>Venkata Aduri OAuth2.0 Play ground Example</h1>
     <div>access_token</div>
@@ -54,7 +73,9 @@ Sfdc.canvas(function() {
     <div>
       <a id="login" href="#">Login</a><br/>
       <a id="profile" href="#">My Chatter Profile</a><br />
+     <a id="refresh" href="#">Refresh Signed Request</a><br />
     </div>
     <textarea id="chatter_profile" rows="20" cols="80"></textarea>
+    <textarea id="refresh_sr" rows="4" cols="80"></textarea>
   </body>
 </html>
