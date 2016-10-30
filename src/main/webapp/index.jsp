@@ -7,13 +7,14 @@
   <body>
     <script>
 	function refreshSR(){
-         alert("raja") ;
+         
 	Sfdc.canvas.client.refreshSignedRequest(function(data){
                           if(data.status == 200){
 	                    var signedRequest = data.payload.response;
 	                    var part = signedRequest.split('.')[1];
-	                    var obj = JSON.parse(Sfdc.canvas.decode(part));
-	                    alert("raja") ;      
+	                   alert("raja111") ;       
+			   var obj = JSON.parse(Sfdc.canvas.decode(part));
+	                    alert("raja2222") ;      
 			    alert(obj) ;                
 }
             });
