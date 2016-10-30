@@ -7,18 +7,16 @@
   <body>
     <script>
 	function refreshSR(){
-Sfdc.canvas.client.refreshSignedRequest(function(data) {
-if (data.status === 200) {
-var signedRequest = data.payload.response;
-var part = signedRequest.split('.')[1];
-alert("yenkataooo");
-var obj = JSON.parse(Sfdc.canvas.decode(part));
-}
-}
-
+            Sfdc.canvas.client.refreshSignedRequest(function(data){
+                if(data.status == 200){
+                    var signedRequest = data.payload.response;
+                    var part = signedRequest.split('.')[1];
+                    alert(venkatiiiiiiiiiiii"");
+		    var obj = JSON.parse(Sfdc.canvas.decode(part));
+                    
+                }
+            });
         }
-
-
 function profileHandler(e) {
   var profileUrl = Sfdc.canvas.oauth.instance() +
     "/services/data/v28.0/chatter/users/me";
