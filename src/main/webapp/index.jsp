@@ -9,8 +9,10 @@
 	function refreshSR(){
          
 	Sfdc.canvas.client.refreshSignedRequest(function(data){
-                          if(data.status == 200){
-	                    var signedRequest = data.payload.response;
+alert("raja3333333344444") ;                          
+if(data.status == 200){
+alert("raja33333333") ;	                  
+  var signedRequest = data.payload.response;
 	                    var part = signedRequest.split('.')[1];
 	                   alert("raja111") ;       
 			   var obj = JSON.parse(Sfdc.canvas.decode(part));
