@@ -9,9 +9,10 @@
 
  <script>
 	
+	
 	var sr;
 	
-	function getSignedRequest()
+	function getSignedRequest(sr)
 	{
 		
 		Sfdc.canvas.client.refreshSignedRequest(function(data)
@@ -22,24 +23,23 @@
                     sr = JSON.parse(Sfdc.canvas.decode(part));
                     }
                  });
-          return sr(Sfdc.canvas);
+         
 	}
 	
+	getSignedRequest(sr);
+	
 	Sfdc.canvas(function(){
-    		
-    		sr = getSignedRequest();
-    		alert("VENKATA"+sr);
-    		<!-- handleSFtoSiebel(sr);-->
-		<!--handleSiebeltoSF(sr);-->
+    		handleSFtoSiebel();
+		handleSiebeltoSF();
 	});
             
-         function handleSFtoSiebel(sr)
+         function handleSFtoSiebel()
          {
          	
          	document.getElementById("case_number_VF").innerHTML  = sr.context.environment.record.caseNumber;	
          }
           
-        function handleSiebeltoSF(sr)
+        function handleSiebeltoSF()
 	{
         	var sr = getSignedRequest();
         	caseId = sr.context.environment.record.Id;
