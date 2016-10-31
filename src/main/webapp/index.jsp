@@ -20,7 +20,7 @@
 	             if(data.status == 200){
 	             var signedRequest = data.payload.response;
 	            var part = signedRequest.split('.')[1];
-                    sr = JSON.parse(Sfdc.canvas.decode(part));
+                    sr = JSON.stringify(JSON.parse(Sfdc.canvas.decode(part)));
                     }
                  });
          
@@ -51,7 +51,7 @@
                      contentType: "application/json",
 	             data:JSON.stringify(body),
 	             success : function() {
-		        window.top.location.href=getRoot()+"/"+"'"+caseId+"'";                         
+		        window.top.location.href=getRoot(sr)+"/"+"'"+caseId+"'";                         
 	             } ,
 		     error: function() {
 		         alert("Error Occured updating Siebel RMA# to SFDC");
