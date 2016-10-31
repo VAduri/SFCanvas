@@ -24,30 +24,35 @@
 							"DEVELOPER NAME:"+obj.context.application.developerName+
 							"NAME SPACE:"+obj.context.application.namespace+
 							"CASE ID:"+obj.context.environment.record.Id;                
-        	        
+        	        caseNumberHandler(obj)
 	}
-	
 	
             });
             
-               var caseId = obj.context.environment.record.Id;
-	       var url = obj.context.links.queryUrl+"?q=SELECT+CaseNumber+from+Case+where+id+="+caseId;
-	       Sfdc.canvas.client.ajax(url,
-	                	      {client : obj.client,
-	                               method: "GET",
-	                               contentType: "application/json",
-	                               success : function(data) {
-	                                 if (data.status ===200) {
-	                                 document.getElementById("case_number").innerHTML  = JSON.stringify(data.payload.records[0].CaseNumber);
-	                 	         }
-	                               },
-	            	               error: function() {
-	                         	 alert("I'm sorry we can't populate the menu at this time. Please contact your system administrator if the problem persists.");
-	                               }
-                                      });
+             
                 }(Sfdc.canvas));
 	
 	
+	function caseNumberHandler(sr)
+	{
+	  var caseId = sr.context.environment.record.Id;
+          var url = sr.context.links.queryUrl+"?q=SELECT+CaseNumber+from+Case+where+id+="+caseId;
+		       Sfdc.canvas.client.ajax(url,
+		                	      {client : sr.client,
+		                               method: "GET",
+		                               contentType: "application/json",
+		                               success : function(data) {
+		                                 if (data.status ===200) {
+		                                 document.getElementById("case_number").innerHTML  = JSON.stringify(data.payload.records[0].CaseNumber);
+		                 	         }
+		                               },
+		            	               error: function() {
+		                         	 alert("I'm sorry we can't populate the menu at this time. Please contact your system administrator if the problem persists.");
+		                               }
+                                      });
+	
+	}
+
 
    </script>
 
