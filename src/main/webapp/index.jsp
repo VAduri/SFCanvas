@@ -7,7 +7,7 @@
   <body>
 
  <script>
-	function refreshSR()1{
+	function refreshSR1(){
             Sfdc.canvas.client.refreshSignedRequest(function(data){
                 if(data.status == 200){
                     var signedRequest = data.payload.response;
@@ -25,6 +25,7 @@
 	}
             });
         }
+	
 	function refreshSR2(){
             Sfdc.canvas.client.refreshSignedRequest(function(data){
                 if(data.status == 200){
