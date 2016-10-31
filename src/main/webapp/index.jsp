@@ -35,8 +35,8 @@
 	
 	function caseNumberHandler(sr)
 	{
-	  var caseId = sr.context.environment.record.Id;
-          var url = sr.context.links.queryUrl+"?q=SELECT+CaseNumber+from+Case+where+id+="+caseId;
+	  var caseId = JSON.stringify(sr.context.environment.record.Id);
+          var url = sr.context.links.queryUrl+"?q=SELECT+CaseNumber+from+Case+where+id+="+'caseId';
 		       Sfdc.canvas.client.ajax(url,
 		                	      {client : sr.client,
 		                               method: "GET",
