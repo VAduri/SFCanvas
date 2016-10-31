@@ -12,8 +12,6 @@
 	
 		
 	Sfdc.canvas(function(){
-	
-		
 		Sfdc.canvas.client.refreshSignedRequest(function(data)
 		{
 	             if(data.status == 200){
@@ -38,7 +36,8 @@
 		    		     }
                  	 });
                     }
-                 });
+          });
+          });
           
    </script>
 
