@@ -34,7 +34,7 @@
 		                         contentType: "application/json",
 		    	             data:JSON.stringify(body),
 		    	             success : function() {
-		    		        window.top.location.href=sr.client.instanceUrl+"/"+"'"+caseId+"'";                         
+		    		        window.top.location.href=sr.client.instanceUrl+"/"+caseId;                         
 		    	             } ,
 		    		     error: function() {
 		    		         alert("Error Occured updating Siebel RMA# to SFDC");
