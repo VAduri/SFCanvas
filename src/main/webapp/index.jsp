@@ -10,7 +10,6 @@
 	
 	Sfdc.canvas(function(){
 	
-	function refreshSR(){
             Sfdc.canvas.client.refreshSignedRequest(function(data){
                 if(data.status == 200){
                     var signedRequest = data.payload.response;
@@ -28,9 +27,8 @@
         	return obj;        
 	}
             });
-        }
-        });
-	
+        
+        }Sfdc.canvas());
 	
 	
 
