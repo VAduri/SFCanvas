@@ -26,20 +26,19 @@
          
 	}
 	
-	getSignedRequest(sr);
 	
 	Sfdc.canvas(function(){
-    		handleSFtoSiebel();
-		handleSiebeltoSF();
+    		handleSFtoSiebel(getSignedRequest(sr));
+		handleSiebeltoSF(getSignedRequest(sr));
 	});
             
-         function handleSFtoSiebel()
+         function handleSFtoSiebel(sr)
          {
          	
          	document.getElementById("case_number_VF").innerHTML  = sr.context.environment.record.caseNumber;	
          }
           
-        function handleSiebeltoSF()
+        function handleSiebeltoSF(sr)
 	{
         	var sr = getSignedRequest();
         	caseId = sr.context.environment.record.Id;
