@@ -5,14 +5,8 @@
   </script>
   </head>
   <body>
-    <h1>Zebra Siebel Signed Request Play ground Example</h1>
-      <div>
-	 <input id="refresh" type="button" value="Refresh Signed Request" onclick="refreshSR();"/>
-	</div>
-	
-	<textarea id="refresh_sr" value="Signed Request JSON String" rows="20" cols="80"></textarea>
-	 
-    <script>
+
+ <script>
 	function refreshSR(){
             Sfdc.canvas.client.refreshSignedRequest(function(data){
                 if(data.status == 200){
@@ -28,8 +22,16 @@
             });
         }
 	
-
    </script>
 
+
+ <h1>Zebra Siebel Signed Request Play ground Example</h1>
+      <div>
+	 <input id="refresh" type="button" value="Refresh Signed Request" onclick="refreshSR();"/>
+	</div>
+	
+	<textarea id="refresh_sr" value="Signed Request JSON String" rows="20" cols="80"></textarea>
+	 
+   
   </body>
 </html>
