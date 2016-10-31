@@ -20,7 +20,7 @@
 							"TARGET ORIGIN:"+obj.client.targetOrigin+
 							"APPLICATION NAME:"+obj.context.application.name+
 							"DEVELOPER NAME:"+obj.context.application.developerName+
-							"NAME SPACE:"+obj.context.application.namespace
+							"NAME SPACE:"+obj.context.application.namespace+
 							"CASE ID:"+obj.context.environment.record.Id;                
         	return obj;        
 	}
@@ -33,6 +33,6 @@
    </script>
 
  <h1>Zebra Siebel Signed Request Play ground Example</h1>
-	<textarea id="refresh_sr" value="Signed Request JSON String" rows="10" cols="80"></textarea>
+	<textarea id="refresh_sr" value="Signed Request JSON String" rows="15" cols="80"></textarea>
   </body>
 </html>
