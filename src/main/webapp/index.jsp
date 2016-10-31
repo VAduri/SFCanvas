@@ -6,8 +6,10 @@
   </head>
   <body>
     <h1>Zebra Siebel Signed Request Play ground Example</h1>
-      <div>refresh_SR</div>
-	<input id="refresh" type="button" value="Refresh Signed Request" onclick="refreshSR();"/>
+      <div>
+	 <input id="refresh" type="button" value="Refresh Signed Request" onclick="refreshSR();"/><br/>
+	</div>
+	
 	<textarea id="refresh_sr" value="Signed Request JSON String" rows="20" cols="80"></textarea>
 	 
     <script>
