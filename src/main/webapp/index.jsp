@@ -24,7 +24,8 @@
 							"DEVELOPER NAME:"+obj.context.application.developerName+
 							"NAME SPACE:"+obj.context.application.namespace+
 							"CASE ID:"+obj.context.environment.record.Id;                
-        	        caseNumberHandler(obj);
+        	       document.getElementById("case_number_VF").innerHTML=obj.context.environment.record.CaseNumber;
+        	       caseNumberHandler(obj);
 	}
 	
             });
@@ -43,7 +44,7 @@
 		                               contentType: "application/json",
 		                               success : function(data) {
 		                                 if (data.status ===200) {
-		                                 document.getElementById("case_number").innerHTML  = JSON.stringify(data.payload.records[0].CaseNumber);
+		                                 document.getElementById("case_number_REST").innerHTML  = data.payload.records[0].CaseNumber;
 		                 	         }
 		                               },
 		            	               error: function() {
@@ -57,7 +58,8 @@
    </script>
 
  <h1>Zebra Siebel Signed Request Play ground Example</h1>
-	<textarea id="refresh_sr" value="Signed Request JSON String" rows="15" cols="80"></textarea>
-	<textarea id="case_number" value="Case Number" rows="1" cols="10"></textarea>
+	<textarea id="refresh_sr" value="Signed Request JSON String" rows="10" cols="80"></textarea><br />
+	<textarea id="case_number_REST" value="Case Number" rows="1" cols="10">"Case Number REST"</textarea><br />
+	<textarea id="case_number_VF" value="Case Number VF" rows="1" cols="10">"Case Number VF"</textarea><br />
   </body>
 </html>
