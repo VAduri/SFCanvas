@@ -9,34 +9,36 @@
 
  <script>
 	
-	
+	var sr;
 	
 	function getSignedRequest()
 	{
-		var obj;
+		
 		Sfdc.canvas.client.refreshSignedRequest(function(data)
 		{
 	             if(data.status == 200){
 	             var signedRequest = data.payload.response;
 	            var part = signedRequest.split('.')[1];
-                    obj = JSON.parse(Sfdc.canvas.decode(part));
+                    sr = JSON.parse(Sfdc.canvas.decode(part));
                     }
                  });
-          return obj;
+          return sr;
 	}
 	
 	Sfdc.canvas(function(){
-    		handleSFtoSiebel();	
-		handleSiebeltoSF();
+    		
+    		sr = getSignedRequest();
+    		handleSFtoSiebel(sr);	
+		handleSiebeltoSF(sr);
 	});
             
-         function handleSFtoSiebel()
+         function handleSFtoSiebel(sr)
          {
-         	var sr = getSignedRequest();
+         	
          	document.getElementById("case_number_VF").innerHTML  = sr.context.environment.record.caseNumber;	
          }
           
-        function handleSiebeltoSF()
+        function handleSiebeltoSF(sr)
 	{
         	var sr = getSignedRequest();
         	caseId = sr.context.environment.record.Id;
@@ -57,7 +59,7 @@
                   });
         }
         
-        function getRoot(){
+        function getRoot(sr){
         return sr.client.instanceUrl;
         }
 
