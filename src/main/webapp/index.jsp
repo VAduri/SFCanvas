@@ -10,9 +10,8 @@
  <script>
 	
 	
-	var sr;
-	
-	function getSignedRequest(sr)
+		
+	Sfdc.canvas(function(){
 	{
 		
 		Sfdc.canvas.client.refreshSignedRequest(function(data)
@@ -41,12 +40,8 @@
                     }
                  });
          
-	}
+	}(Sfdc.canvas));
 	
-	
-	Sfdc.canvas(function(){
-    		getSignedRequest();
-	});
             
    </script>
 
