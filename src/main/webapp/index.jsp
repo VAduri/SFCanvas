@@ -18,8 +18,8 @@
                 if(data.status == 200){
                     var signedRequest = data.payload.response;
                     var part = signedRequest.split('.')[1];
-                    var obj = JSON.parse(Sfdc.canvas.decode(part));
-                    alert(obj.context.organization.name);
+                    var sr = JSON.parse(Sfdc.canvas.decode(part));
+                    alert(sr.client.targetOrigin+""+sr.client.instanceId+""+sr.client.instanceId+""+sr.client.instanceUrl+""+sr.client.oauthToken+""+sr.client.oauthToken);
                 }
             });
         }
