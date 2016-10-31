@@ -19,7 +19,7 @@
                     var signedRequest = data.payload.response;
                     var part = signedRequest.split('.')[1];
                     var sr = JSON.parse(Sfdc.canvas.decode(part));
-                    alert(sr.client.targetOrigin+""+sr.client.instanceId+""+sr.client.instanceId+""+sr.client.instanceUrl+""+sr.client.oauthToken+""+sr.client.oauthToken);
+                    alert(sr.client.targetOrigin+"_______"+sr.client.instanceId+"_______"+sr.client.instanceUrl+"_______"+sr.client.oauthToken+"_______"+sr.client.refreshToken);
                 }
             });
         }
