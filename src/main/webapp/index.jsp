@@ -7,9 +7,9 @@
   <body>
     <h1>Zebra Siebel Signed Request Play ground Example</h1>
       <div>refresh_SR</div>
-	<textarea id="refresh_sr" rows="20" cols="80"></textarea>
-	 <input id="refresh" type="button" value="Refresh Signed Request" onclick="refreshSR();"/>
-
+	<input id="refresh" type="button" value="Refresh Signed Request" onclick="refreshSR();"/>
+	<textarea id="refresh_sr" value="Signed Request JSON String" rows="20" cols="80"></textarea>
+	 
     <script>
 	function refreshSR(){
             Sfdc.canvas.client.refreshSignedRequest(function(data){
