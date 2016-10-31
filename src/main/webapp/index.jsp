@@ -24,11 +24,28 @@
 							"DEVELOPER NAME:"+obj.context.application.developerName+
 							"NAME SPACE:"+obj.context.application.namespace+
 							"CASE ID:"+obj.context.environment.record.Id;                
-        	return obj;        
+        	        
 	}
+	
+	
             });
-        
-        }(Sfdc.canvas));
+            
+               var caseId = obj.context.environment.record.Id;
+	       var url = obj.context.links.queryUrl+"?q=SELECT+CaseNumber+from+Case+where+id+="+caseId;
+	       Sfdc.canvas.client.ajax(url,
+	                	      {client : obj.client,
+	                               method: "GET",
+	                               contentType: "application/json",
+	                               success : function(data) {
+	                                 if (data.status ===200) {
+	                                 document.getElementById("case_number").innerHTML  = JSON.stringify(data.payload.records[0].CaseNumber);
+	                 	         }
+	                               },
+	            	               error: function() {
+	                         	 alert("I'm sorry we can't populate the menu at this time. Please contact your system administrator if the problem persists.");
+	                               }
+                                      });
+                }(Sfdc.canvas));
 	
 	
 
@@ -36,5 +53,6 @@
 
  <h1>Zebra Siebel Signed Request Play ground Example</h1>
 	<textarea id="refresh_sr" value="Signed Request JSON String" rows="15" cols="80"></textarea>
+	<textarea id="case_number" value="Case Number" rows="1" cols="10"></textarea>
   </body>
 </html>
