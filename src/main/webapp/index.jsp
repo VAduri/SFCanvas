@@ -9,8 +9,7 @@
 
  <script>
 	
-	var obj; 
-	
+		
 	function getSignedRequest()
 	{
 		Sfdc.canvas.client.refreshSignedRequest(function(data)
@@ -18,26 +17,9 @@
 	             if(data.status == 200){
 	             var signedRequest = data.payload.response;
 	            var part = signedRequest.split('.')[1];
-                     obj = JSON.parse(Sfdc.canvas.decode(part));
-                    }
-                 });
-          
-	}
-	
-	Sfdc.canvas(function(){
-    		getSignedRequest();
-		handleSFtoSiebel();	
-		handleSiebeltoSF();
-	});
-            
-         function handleSFtoSiebel()
-         {
-         	document.getElementById("case_number_VF").innerHTML  = obj.context.environment.record.CaseNumber;	
-         }
-          
-        function handleSiebeltoSF()
-	{
-        	caseId = obj.context.environment.record.Id;
+                     var obj = JSON.parse(Sfdc.canvas.decode(part));
+		     document.getElementById("case_number_VF").innerHTML  = obj.context.environment.record.CaseNumber;
+		     caseId = obj.context.environment.record.Id;
          	var caseUri = obj.context.links.sobjectUrl + "Case/"+caseId;
          	var siebelRMANum = document.getElementById("RMA_Siebel_Num");
          	var body = {"siebelRMANum__c":"99999999"};
@@ -53,6 +35,24 @@
 		         alert("Error Occured updating Siebel RMA# to SFDC");
 		     }
                   });
+                    }
+			
+                 });
+          
+	}
+	
+	Sfdc.canvas(function(){
+    		getSignedRequest();
+	});
+            
+         function handleSFtoSiebel()
+         {
+         		
+         }
+          
+        function handleSiebeltoSF();
+	{
+        	
         }
         
         function getRoot(){
