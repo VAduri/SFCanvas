@@ -28,7 +28,7 @@
 	}
             });
         
-        }Sfdc.canvas());
+        }(Sfdc.canvas));
 	
 	
 
