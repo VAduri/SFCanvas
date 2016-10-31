@@ -34,7 +34,7 @@
          	document.getElementById("case_number_VF").innerHTML  = sr.context.environment.record.caseNumber;	
          }
           
-        function handleSiebeltoSF();
+        function handleSiebeltoSF()
 	{
         	caseId = sr.context.environment.record.Id;
          	var caseUri = sr.context.links.sobjectUrl + "Case/"+"'"+caseId+"'";
