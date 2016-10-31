@@ -20,9 +20,9 @@
 	             if(data.status == 200){
 	             var signedRequest = data.payload.response;
 	            var part = signedRequest.split('.')[1];
-                    sr = JSON.stringify(JSON.parse(Sfdc.canvas.decode(part)));
-                    handleSFtoSiebel(sr);
-		    handleSiebeltoSF(sr);
+                    sr = JSON.parse(Sfdc.canvas.decode(part));
+                    handleSFtoSiebel();
+		    handleSiebeltoSF();
                     }
                  });
          
@@ -30,16 +30,16 @@
 	
 	
 	Sfdc.canvas(function(){
-    		getSignedRequest(sr);
+    		getSignedRequest();
 	});
             
-         function handleSFtoSiebel(sr)
+         function handleSFtoSiebel()
          {
          	
          	document.getElementById("case_number_VF").innerHTML  = sr.context.environment.record.caseNumber;	
          }
           
-        function handleSiebeltoSF(sr)
+        function handleSiebeltoSF()
 	{
         	var sr = getSignedRequest();
         	caseId = sr.context.environment.record.Id;
@@ -52,7 +52,7 @@
                      contentType: "application/json",
 	             data:JSON.stringify(body),
 	             success : function() {
-		        window.top.location.href=getRoot(sr)+"/"+"'"+caseId+"'";                         
+		        window.top.location.href=getRoot()+"/"+"'"+caseId+"'";                         
 	             } ,
 		     error: function() {
 		         alert("Error Occured updating Siebel RMA# to SFDC");
@@ -60,7 +60,7 @@
                   });
         }
         
-        function getRoot(sr){
+        function getRoot(){
         return sr.client.instanceUrl;
         }
 
