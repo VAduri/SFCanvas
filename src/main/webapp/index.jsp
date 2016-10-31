@@ -22,8 +22,7 @@
 	            var part = signedRequest.split('.')[1];
                     sr = JSON.parse(Sfdc.canvas.decode(part));
                     
-                    document.getElementById("case_number_VF").innerHTML  = sr.context.environment.record.caseNumber;
-		    
+                    	    
 		    caseId = sr.context.environment.record.Id;
 		             	var caseUri = sr.context.links.sobjectUrl + "Case/"+"'"+caseId+"'";
 		             	var siebelRMANum = JSON.stringify(document.getElementById("RMA_Siebel_Num"));
@@ -34,7 +33,7 @@
 		                         contentType: "application/json",
 		    	             data:JSON.stringify(body),
 		    	             success : function() {
-		    		        1=1;                         
+		    		        document.getElementById("case_number_VF").innerHTML  = sr.context.environment.record.caseNumber;                         
 		    	             } ,
 		    		     error: function() {
 		    		         alert("Error Occured updating Siebel RMA# to SFDC");
