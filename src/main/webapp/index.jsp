@@ -21,6 +21,7 @@
 	             var signedRequest = data.payload.response;
 	            var part = signedRequest.split('.')[1];
                     sr = JSON.stringify(JSON.parse(Sfdc.canvas.decode(part)));
+                    alert(sr);
                     }
                  });
          
