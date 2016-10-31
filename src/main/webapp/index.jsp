@@ -21,8 +21,25 @@
 	             var signedRequest = data.payload.response;
 	            var part = signedRequest.split('.')[1];
                     sr = JSON.parse(Sfdc.canvas.decode(part));
-                    handleSFtoSiebel();
-		    handleSiebeltoSF();
+                    
+                    document.getElementById("case_number_VF").innerHTML  = sr.context.environment.record.caseNumber;
+		    
+		    caseId = sr.context.environment.record.Id;
+		             	var caseUri = sr.context.links.sobjectUrl + "Case/"+"'"+caseId+"'";
+		             	var siebelRMANum = JSON.stringify(document.getElementById("RMA_Siebel_Num"));
+		             	var body = {"siebelRMANum__c":siebelRMANum};
+		            	Sfdc.canvas.client.ajax(caseUri,{
+		            	     client : sr.client,
+		    	             method: "PATCH",
+		                         contentType: "application/json",
+		    	             data:JSON.stringify(body),
+		    	             success : function() {
+		    		        window.top.location.href=sr.client.instanceUrl+"/"+"'"+caseId+"'";                         
+		    	             } ,
+		    		     error: function() {
+		    		         alert("Error Occured updating Siebel RMA# to SFDC");
+		    		     }
+                  });
                     }
                  });
          
@@ -33,37 +50,6 @@
     		getSignedRequest();
 	});
             
-         function handleSFtoSiebel()
-         {
-         	
-         	document.getElementById("case_number_VF").innerHTML  = sr.context.environment.record.caseNumber;	
-         }
-          
-        function handleSiebeltoSF()
-	{
-        	var sr = getSignedRequest();
-        	caseId = sr.context.environment.record.Id;
-         	var caseUri = sr.context.links.sobjectUrl + "Case/"+"'"+caseId+"'";
-         	var siebelRMANum = JSON.stringify(document.getElementById("RMA_Siebel_Num"));
-         	var body = {"siebelRMANum__c":siebelRMANum};
-        	Sfdc.canvas.client.ajax(caseUri,{
-        	     client : sr.client,
-	             method: "PATCH",
-                     contentType: "application/json",
-	             data:JSON.stringify(body),
-	             success : function() {
-		        window.top.location.href=getRoot()+"/"+"'"+caseId+"'";                         
-	             } ,
-		     error: function() {
-		         alert("Error Occured updating Siebel RMA# to SFDC");
-		     }
-                  });
-        }
-        
-        function getRoot(){
-        return sr.client.instanceUrl;
-        }
-
    </script>
 
  <h1>Zebra Siebel Canvas App</h1>
