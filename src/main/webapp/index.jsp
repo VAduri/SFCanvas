@@ -9,45 +9,65 @@
 
  <script>
 	
+	var obj; 
 	
-		
-	Sfdc.canvas(function(){
+	function getSignedRequest()
+	{
 		Sfdc.canvas.client.refreshSignedRequest(function(data)
 		{
 	             if(data.status == 200){
-	             	var signedRequest = data.payload.response;
-	            	var part = signedRequest.split('.')[1];
-                   	 sr = JSON.parse(Sfdc.canvas.decode(part));
-                   	 document.getElementById("case_number_VF").innerHTML  = sr.context.environment.record.caseNumber;	    
-		    	caseId = sr.context.environment.record.Id;
-		        var caseUri = sr.context.links.sobjectUrl + "Case/"+caseId;
-		        var siebelRMANum = document.getElementById("RMA_Siebel_Num").innerHTML;
-		        var body = {"siebelRMANum__c":siebelRMANum};
-		        Sfdc.canvas.client.ajax(caseUri,{
-		            	     client : sr.client,
-		    	             method: "PATCH",
-		                         contentType: "application/json",
-		    	             data:JSON.stringify(body),
-		    	             success : function() {
-		    		                                 
-		    	             } ,
-		    		     error: function() {
-		    		         alert("Error Occured updating Siebel RMA# to SFDC");
-		    		     }
-                 	 });
+	             var signedRequest = data.payload.response;
+	            var part = signedRequest.split('.')[1];
+                     obj = JSON.parse(Sfdc.canvas.decode(part));
                     }
-          });
-          });
+                 });
           
+	}
+	
+	Sfdc.canvas(function(){
+    		getSignedRequest();
+		handleSFtoSiebel();	
+		handleSiebeltoSF();
+	});
+            
+         function handleSFtoSiebel()
+         {
+         	document.getElementById("case_number_VF").innerHTML  = obj.context.environment.record.CaseNumber;	
+         }
+          
+        function handleSiebeltoSF();
+	{
+        	caseId = obj.context.environment.record.Id;
+         	var caseUri = obj.context.links.sobjectUrl + "Case/"+caseId;
+         	var siebelRMANum = document.getElementById("RMA_Siebel_Num");
+         	var body = {"siebelRMANum__c":"99999999"};
+        	Sfdc.canvas.client.ajax(caseUri,{
+        	     client : obj.client,
+	             method: "PATCH",
+                     contentType: "application/json",
+	             data:JSON.stringify(body),
+	             success : function() {
+		        var a =1;                         
+	             } ,
+		     error: function() {
+		         alert("Error Occured updating Siebel RMA# to SFDC");
+		     }
+                  });
+        }
+        
+        function getRoot(){
+        return obj.client.instanceUrl;
+        }
+
    </script>
 
  <h1>Zebra Siebel Canvas App</h1>
   
    <label><b>SF Case Number from SF on Siebel Page</b></label>
-   <textarea id="case_number_VF" rows="1" cols="10"></textarea><br><br><br>
+   <input type="textfield" id="case_number_VF" rows="1" cols="10"></input><br><br><br>
   
    <label><b>Siebel RMA# from Siebel on Siebel Page</b></label>
-   <textarea id="RMA_Siebel_Num" value="99999999" rows="1" cols="10"></textarea>
+   <input type="textfield" id="RMA_Siebel_Num" value="99999999" rows="1" cols="10"></input>
   
   </body>
 </html>
