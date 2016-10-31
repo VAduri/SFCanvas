@@ -24,7 +24,7 @@
 							"DEVELOPER NAME:"+obj.context.application.developerName+
 							"NAME SPACE:"+obj.context.application.namespace+
 							"CASE ID:"+obj.context.environment.record.Id;                
-        	        caseNumberHandler(obj)
+        	        caseNumberHandler(obj);
 	}
 	
             });
