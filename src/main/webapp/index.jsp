@@ -17,7 +17,10 @@
 							"INSTANCE URL:"+ obj.client.instanceUrl +
 							"OAUTH TOKEN:"+ obj.client.oauthToken + 
 							"REFRESH TOKEN:"+obj.client.refreshToken +
-							"TARGET ORIGIN:"+obj.client.targetOrigin;                
+							"TARGET ORIGIN:"+obj.client.targetOrigin+
+							"APPLICATION NAME:"+obj.context.application.name+
+							"DEVELOPER NAME:"+obj.context.application.developerName+
+							"NAME SPACE:"+obj.context.application.namespace;                
         	return obj;        
 	}
             });
