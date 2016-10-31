@@ -8,7 +8,7 @@
 
  <script>
 	
-	sfdc.canvas(function(){
+	Sfdc.canvas(function(){
 	
 	function refreshSR(){
             Sfdc.canvas.client.refreshSignedRequest(function(data){
