@@ -7,6 +7,9 @@
   <body>
 
  <script>
+	
+	sfdc.canvas(function(){
+	
 	function refreshSR(){
             Sfdc.canvas.client.refreshSignedRequest(function(data){
                 if(data.status == 200){
@@ -26,9 +29,10 @@
 	}
             });
         }
+        });
 	
 	
-	var sr = refreshSR();
+	
 
    </script>
 
