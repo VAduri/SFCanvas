@@ -28,8 +28,9 @@
 	Sfdc.canvas(function(){
     		
     		sr = getSignedRequest();
-    		handleSFtoSiebel(sr);	
-		handleSiebeltoSF(sr);
+    		alert("VENKATA"+sr);
+    		<!-- handleSFtoSiebel(sr);-->
+		<!--handleSiebeltoSF(sr);-->
 	});
             
          function handleSFtoSiebel(sr)
