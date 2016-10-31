@@ -19,17 +19,17 @@
                     var signedRequest = data.payload.response;
                     var part = signedRequest.split('.')[1];
                     var sr = JSON.parse(Sfdc.canvas.decode(part));
-                    return sr;
+    document.getElementById("refresh_sr").innerHTML="INSTANCE ID:"+sr.client.instanceId + "<br>"+
+							"INSTANCE URL:"+ sr.client.instanceUrl + "<br>" +
+							"OAUTH TOKEN:"+ sr.client.oauthToken + "<br>" +
+							"REFRESH TOKEN:"+sr.client.refreshToken + "<br>" +
+							"TARGET ORIGIN:"+sr.client.targetOrigin;                
                 }
             });
         }
 	
 
-document.getElementById("refresh_sr").innerHTML="INSTANCE ID:"+sr.client.instanceId + "<br>"+
-							"INSTANCE URL:"+ sr.client.instanceUrl + "<br>" +
-							"OAUTH TOKEN:"+ sr.client.oauthToken + "<br>" +
-							"REFRESH TOKEN:"+sr.client.refreshToken + "<br>" +
-							"TARGET ORIGIN:"+sr.client.targetOrigin;
+
    </script>
 
   </body>
