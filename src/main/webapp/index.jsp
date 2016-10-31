@@ -22,7 +22,7 @@
                     sr = JSON.parse(Sfdc.canvas.decode(part));
                     }
                  });
-          return sr;
+          return sr(Sfdc.canvas);
 	}
 	
 	Sfdc.canvas(function(){
