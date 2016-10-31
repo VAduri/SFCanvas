@@ -20,7 +20,8 @@
 							"TARGET ORIGIN:"+obj.client.targetOrigin+
 							"APPLICATION NAME:"+obj.context.application.name+
 							"DEVELOPER NAME:"+obj.context.application.developerName+
-							"NAME SPACE:"+obj.context.application.namespace;                
+							"NAME SPACE:"+obj.context.application.namespace
+							"CASE ID:"+obj.context.environment.record.Id;                
         	return obj;        
 	}
             });
