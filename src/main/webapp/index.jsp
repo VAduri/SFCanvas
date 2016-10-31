@@ -23,7 +23,7 @@
                     document.getElementById("case_number_VF").innerHTML  = sr.context.environment.record.caseNumber;	    
 		    caseId = sr.context.environment.record.Id;
 		             	var caseUri = sr.context.links.sobjectUrl + "Case/"+caseId;
-		             	var siebelRMANum = JSON.stringify(document.getElementById("RMA_Siebel_Num"));
+		             	var siebelRMANum = document.getElementById("RMA_Siebel_Num").innerHTML;
 		             	var body = {"siebelRMANum__c":siebelRMANum};
 		            	Sfdc.canvas.client.ajax(caseUri,{
 		            	     client : sr.client,
@@ -40,7 +40,7 @@
                     }
                  });
          
-	}(Sfdc.canvas));
+	};
 	
             
    </script>
