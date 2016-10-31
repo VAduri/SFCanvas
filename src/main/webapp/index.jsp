@@ -13,10 +13,10 @@
                     var signedRequest = data.payload.response;
                     var part = signedRequest.split('.')[1];
                     var obj = JSON.parse(Sfdc.canvas.decode(part));
-    		document.getElementById("refresh_sr").innerHTML="INSTANCE ID:"+obj.client.instanceId<br> +
-							"INSTANCE URL:"+ obj.client.instanceUrl<br> +
-							"OAUTH TOKEN:"+ obj.client.oauthToken<br> + 
-							"REFRESH TOKEN:"+obj.client.refreshToken<br> +
+    		document.getElementById("refresh_sr").innerHTML="INSTANCE ID:"+obj.client.instanceId +
+							"INSTANCE URL:"+ obj.client.instanceUrl +
+							"OAUTH TOKEN:"+ obj.client.oauthToken + 
+							"REFRESH TOKEN:"+obj.client.refreshToken +
 							"TARGET ORIGIN:"+obj.client.targetOrigin;                
         	return obj;        
 	}
