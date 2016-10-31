@@ -64,10 +64,10 @@
  <h1>Zebra Siebel Canvas App</h1>
   
    <label><b>SF Case Number from SF on Siebel Page</b></label>
-   <input type="textfield" id="case_number_VF" rows="1" cols="10"></input><br><br><br>
+   <textarea id="case_number_VF" rows="1" value="test" cols="10"></textarea><br><br><br>
   
    <label><b>Siebel RMA# from Siebel on Siebel Page</b></label>
-   <input type="textfield" id="RMA_Siebel_Num" value="99999999" rows="1" cols="10"></input>
+   <textarea id="RMA_Siebel_Num" value="99999999" rows="1" cols="10"></textarea>
   
   </body>
 </html>
