@@ -50,7 +50,7 @@
          		
          }
           
-        function handleSiebeltoSF();
+        function handleSiebeltoSF()
 	{
         	
         }
