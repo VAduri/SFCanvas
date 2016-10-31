@@ -39,7 +39,7 @@
                  	 });
                     }
                  });
-   }         
+          
    </script>
 
  <h1>Zebra Siebel Canvas App</h1>
