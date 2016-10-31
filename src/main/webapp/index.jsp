@@ -9,7 +9,7 @@
 
  <script>
 	
-	var sr = getSignedRequest();
+	
 	
 	function getSignedRequest()
 	{
@@ -32,11 +32,13 @@
             
          function handleSFtoSiebel()
          {
+         	var sr = getSignedRequest();
          	document.getElementById("case_number_VF").innerHTML  = sr.context.environment.record.caseNumber;	
          }
           
         function handleSiebeltoSF()
 	{
+        	var sr = getSignedRequest();
         	caseId = sr.context.environment.record.Id;
          	var caseUri = sr.context.links.sobjectUrl + "Case/"+"'"+caseId+"'";
          	var siebelRMANum = JSON.stringify(document.getElementById("RMA_Siebel_Num"));
