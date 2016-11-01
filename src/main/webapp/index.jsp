@@ -10,7 +10,7 @@
   </head>
   <body>
  <script>
-	
+	var test="";
   	function srObj() {
   		Sfdc.canvas.client.refreshSignedRequest(function(data)
   		{
@@ -18,26 +18,27 @@
   			if(data.status == 200){
   			var signedRequest = data.payload.response;
   		       	var part = signedRequest.split('.')[1];
-  		       	alert(signedRequest);
-  		       	alert(part);
-  		       	var check = JSON.parse(Sfdc.canvas.decode(part));
+  		       /*	alert(signedRequest);
+  		       	alert(part);*/
+  		       	test = JSON.parse(Sfdc.canvas.decode(part));
   		       	console.log(check);
   		       	alert("context" + check.context);
   		        return JSON.parse(Sfdc.canvas.decode(part));
-  		        
  			}	
 		}
 		);
 	}
 	
 	Sfdc.canvas(function(){
-    		$('#CopyCasefromSF').click(handleSFtoSiebel);
-    		$('#CopyRMAToSF').click(handleSiebeltoSF);
+	    		$('#CopyCasefromSF').click(handleSFtoSiebel);
+	    		$('#CopyRMAToSF').click(handleSiebeltoSF);
 	});
             
          function handleSFtoSiebel(){
-           
-            document.getElementById("case_number_VF").innerHTML  = srObj().context.environment.record.CaseNumber;	
+           alert($(test));
+           console.log($(test));
+           console.log(test.context);
+            document.getElementById("case_number_VF").innerHTML  = test.context.environment.record.CaseNumber;	
          }
           
         function handleSiebeltoSF(){
