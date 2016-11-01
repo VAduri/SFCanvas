@@ -29,8 +29,8 @@
 	    		$('#CopyCasefromSF').click(handleSFtoSiebel);
 	    		$('#CopyRMAToSF').click(handleSiebeltoSF);
 	});
-          
-        handleSFtoSiebel();
+   
+   	handleSFtoSiebel;
         
          function handleSFtoSiebel(){
             document.getElementById("case_number_VF").innerHTML  = sr.context.environment.record.CaseNumber;	
