@@ -14,10 +14,12 @@
   	function srObj() {
   		Sfdc.canvas.client.refreshSignedRequest(function(data)
   		{
+  			alert("Data Status"+data.status);
   			if(data.status == 200){
   			var signedRequest = data.payload.response;
   		       	var part = signedRequest.split('.')[1];
   		        return JSON.parse(Sfdc.canvas.decode(part));
+  		        alert("JSON"+JSON.parse(Sfdc.canvas.decode(part)));
  			}	
 		}
 		);
@@ -29,10 +31,12 @@
 	});
             
          function handleSFtoSiebel(){
+            alert("1"+srObj());
             document.getElementById("case_number_VF").innerHTML  = srObj().context.environment.record.CaseNumber;	
          }
           
         function handleSiebeltoSF(){
+        	alert("2"+srObj());
         	caseId = srObj().context.environment.record.Id;
 		var caseUri = srObj().context.links.sobjectUrl + "Case/"+caseId;
 		var siebelRMANum = document.getElementById("RMA_Siebel_Num");
