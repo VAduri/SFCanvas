@@ -20,8 +20,8 @@
 		     document.getElementById("case_number_VF").innerHTML  = obj.context.environment.record.CaseNumber;
 		     caseId = obj.context.environment.record.Id;
          	var caseUri = obj.context.links.sobjectUrl + "Case/"+caseId;
-         	var siebelRMANum = document.getElementById("RMA_Siebel_Num");
-         	var body = {"siebelRMANum__c":"99999999"};
+         	var siebelRMANum = $("#RMA_Siebel_Num").val();
+         	var body = {"siebelRMANum__c":siebelRMANum};
         	Sfdc.canvas.client.ajax(caseUri,{
         	     client : obj.client,
 	             method: "PATCH",
@@ -54,7 +54,7 @@
    <textarea id="case_number_VF" rows="1" value="test" cols="10"></textarea><br><br><br>
   
    <label><b>Siebel RMA# from Siebel on Siebel Page</b></label>
-   <textarea id="RMA_Siebel_Num" value="99999999" rows="1" cols="10"></textarea>
+   <textarea id="RMA_Siebel_Num" value="99999999" rows="1" cols="10">1000</textarea>
   
   </body>
 </html>
