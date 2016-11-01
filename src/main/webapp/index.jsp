@@ -18,6 +18,7 @@
   			var signedRequest = data.payload.response;
   		       	var part = signedRequest.split('.')[1];
   		       	sr = JSON.parse(Sfdc.canvas.decode(part));
+ 			document.getElementById("case_number_VF").innerHTML  = sr.context.environment.record.CaseNumber;
  			}	
 		}
 		);
@@ -29,11 +30,7 @@
 	    		$('#CopyRMAToSF').click(handleSiebeltoSF);
 	});
    
-   	handleSFtoSiebel();
-        
-         function handleSFtoSiebel(){
-            document.getElementById("case_number_VF").innerHTML  = sr.context.environment.record.CaseNumber;	
-         }
+   	$("#case_number_VF").val(sr.context.environment.record.CaseNumber);
           
         function handleSiebeltoSF(){
         	
@@ -63,7 +60,6 @@
 
  <h1>Zebra Siebel Canvas App</h1>
   
-   <button id="CopyCasefromSF">FROM SF</button><br>
    <label><b>SF Case Number from SF on Siebel Page</b></label>
    <textarea id="case_number_VF" rows="1" value="test" cols="10"></textarea><br><br><br>
    <button id="CopyRMAToSF"> TO SF</button><br>
