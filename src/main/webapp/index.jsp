@@ -20,7 +20,7 @@
 		     document.getElementById("case_number_VF").innerHTML  = obj.context.environment.record.CaseNumber;
 		     caseId = obj.context.environment.record.Id;
          	     var caseUri = obj.context.links.sobjectUrl + "Case/"+caseId;
-         	     var siebelRMANum = document.getElementById("RMA_Siebel_Num");
+         	     var siebelRMANum = document.getElementById("RMA_Siebel_Num").innerHTML;
          	     alert(siebelRMANum);
          	var body = {"siebelRMANum__c":siebelRMANum};
         	Sfdc.canvas.client.ajax(caseUri,{
