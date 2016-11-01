@@ -4,62 +4,70 @@
   <script type="text/javascript"
     src="https://na16.salesforce.com/canvas/sdk/js/37.0/canvas-all.js">
   </script>
+  <script type="text/javascript"
+      src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js">
+  </script>
   </head>
   <body>
-
  <script>
-	
-	
-	
-	function getSignedRequest()
-	{
-		Sfdc.canvas.client.refreshSignedRequest(function(data)
-		{
-	             if(data.status == 200){
-	             var signedRequest = data.payload.response;
-	            var part = signedRequest.split('.')[1];
-                     var obj = JSON.parse(Sfdc.canvas.decode(part));
-		     document.getElementById("case_number_VF").innerHTML  = obj.context.environment.record.CaseNumber;
-		     caseId = obj.context.environment.record.Id;
-         	     var caseUri = obj.context.links.sobjectUrl + "Case/"+caseId;
-         	     var siebelRMANum = document.getElementById("RMA_Siebel_Num").innerHTML;
-         	     alert(siebelRMANum);
-         	     var body = {"siebelRMANum__c":siebelRMANum};
-        	    Sfdc.canvas.client.ajax(caseUri,{
-        	     client : obj.client,
-	             method: "PATCH",
-                     contentType: "application/json",
-	             data:JSON.stringify(body),
-	             success : function() {
-		        var a=1;                  
-	             } ,
-		     error: function() {
-		         alert("Error Occured updating Siebel RMA# to SFDC");
-		     }
-                  });
-                    }
-			
-                 });
-          
+	var sr="";
+  	function srObj() {
+  		Sfdc.canvas.client.refreshSignedRequest(function(data)
+  		{
+  			if(data.status == 200){
+  			var signedRequest = data.payload.response;
+  		       	var part = signedRequest.split('.')[1];
+  		       	sr = JSON.parse(Sfdc.canvas.decode(part));
+ 			}	
+		}
+		);
 	}
 	
+	Sfdc.canvas.onReady(function(){srObj();});
 	
 	Sfdc.canvas(function(){
-    			getSignedRequest();
-    		
+	    		$('#CopyCasefromSF').click(handleSFtoSiebel);
+	    		$('#CopyRMAToSF').click(handleSiebeltoSF);
 	});
             
-         
+         function handleSFtoSiebel(){
+            document.getElementById("case_number_VF").innerHTML  = sr.context.environment.record.CaseNumber;	
+         }
+          
+        function handleSiebeltoSF(){
+        	
+        	caseId = sr.context.environment.record.Id;
+		var caseUri = sr.context.links.sobjectUrl + "Case/"+caseId;
+		var siebelRMANum = document.getElementById("RMA_Siebel_Num");
+		var body = {"siebelRMANum__c":"99999999"};
+		Sfdc.canvas.client.ajax(caseUri,{
+		        	     	client : sr.client,
+			             	method: "PATCH",
+		                     	contentType: "application/json",
+			             	data:JSON.stringify(body),
+			             	success : function() {
+				     	   window.top.location.href=getRoot()+"/"+caseId;                         
+			             	} ,
+				     	error: function() {
+				     	    alert("Error Occured updating Siebel RMA# to SFDC");
+				     	}
+                  			});
+        }
+        
+        function getRoot(){
+        	return sr.client.instanceUrl;
+        }
 
    </script>
 
  <h1>Zebra Siebel Canvas App</h1>
   
+   <button id="CopyCasefromSF">FROM SF</button><br>
    <label><b>SF Case Number from SF on Siebel Page</b></label>
    <textarea id="case_number_VF" rows="1" value="test" cols="10"></textarea><br><br><br>
-  
+   <button id="CopyRMAToSF"> TO SF</button><br>
    <label><b>Siebel RMA# from Siebel on Siebel Page</b></label>
-   <textarea id="RMA_Siebel_Num" value="878787" rows="1" cols="10">1000</textarea>
+   <textarea id="RMA_Siebel_Num" value="99999999" rows="1" cols="10"></textarea>
   
   </body>
 </html>
