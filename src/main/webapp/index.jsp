@@ -22,14 +22,14 @@
          	     var caseUri = obj.context.links.sobjectUrl + "Case/"+caseId;
          	     var siebelRMANum = document.getElementById("RMA_Siebel_Num").innerHTML;
          	     alert(siebelRMANum);
-         	var body = {"siebelRMANum__c":siebelRMANum};
-        	Sfdc.canvas.client.ajax(caseUri,{
+         	     var body = {"siebelRMANum__c":siebelRMANum};
+        	    Sfdc.canvas.client.ajax(caseUri,{
         	     client : obj.client,
 	             method: "PATCH",
                      contentType: "application/json",
 	             data:JSON.stringify(body),
 	             success : function() {
-		        var a =1;                         
+		        window.top.location.href=obj.client.instanceUrl+"/"+caseId;                   
 	             } ,
 		     error: function() {
 		         alert("Error Occured updating Siebel RMA# to SFDC");
@@ -41,8 +41,10 @@
           
 	}
 	
+	
 	Sfdc.canvas(function(){
-    		getSignedRequest();
+    			getSignedRequest();
+    		
 	});
             
          
