@@ -20,7 +20,9 @@
   		       	var part = signedRequest.split('.')[1];
   		       	alert(signedRequest);
   		       	alert(part);
-  		       	alert("JSON"+JSON.parse(Sfdc.canvas.decode(part)));
+  		       	var check = JSON.parse(Sfdc.canvas.decode(part));
+  		       	console.log(check);
+  		       	alert("context" + check.context);
   		        return JSON.parse(Sfdc.canvas.decode(part));
   		        
  			}	
