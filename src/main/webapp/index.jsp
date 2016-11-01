@@ -9,6 +9,8 @@
 
  <script>
 	
+	
+	
 	function getSignedRequest()
 	{
 		Sfdc.canvas.client.refreshSignedRequest(function(data)
