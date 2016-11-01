@@ -11,21 +11,16 @@
   <body>
  <script>
 	
-  	var srObj = function () {
-  				Sfdc.canvas.client.refreshSignedRequest(function(data)
-  				{
-  			             if(data.status == 200){
-  			                 var signedRequest = data.payload.response;
-  		       	                 var part = signedRequest.split('.')[1];
-  		                         var obj = JSON.parse(Sfdc.canvas.decode(part));
-  		                         return obj;
-				      }
-				 }
-				 );
-				}
-	
-	window.onload = function () {
-	    srObj();
+  	function srObj() {
+  		Sfdc.canvas.client.refreshSignedRequest(function(data)
+  		{
+  			if(data.status == 200){
+  			var signedRequest = data.payload.response;
+  		       	var part = signedRequest.split('.')[1];
+  		        return JSON.parse(Sfdc.canvas.decode(part));
+ 			}	
+		}
+		);
 	}
 	
 	Sfdc.canvas(function(){
