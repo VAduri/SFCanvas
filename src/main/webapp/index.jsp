@@ -34,16 +34,16 @@
 	});
             
          function handleSFtoSiebel(){
-            document.getElementById("case_number_VF").innerHTML  = srObj.context.environment.record.CaseNumber;	
+            document.getElementById("case_number_VF").innerHTML  = srObj().context.environment.record.CaseNumber;	
          }
           
         function handleSiebeltoSF(){
-        	caseId = srObj.context.environment.record.Id;
-		var caseUri = srObj.context.links.sobjectUrl + "Case/"+caseId;
+        	caseId = srObj().context.environment.record.Id;
+		var caseUri = srObj().context.links.sobjectUrl + "Case/"+caseId;
 		var siebelRMANum = document.getElementById("RMA_Siebel_Num");
 		var body = {"siebelRMANum__c":"99999999"};
 		Sfdc.canvas.client.ajax(caseUri,{
-		        	     	client : srObj.client,
+		        	     	client : srObj().client,
 			             	method: "PATCH",
 		                     	contentType: "application/json",
 			             	data:JSON.stringify(body),
@@ -57,7 +57,7 @@
         }
         
         function getRoot(){
-        	return obj.client.instanceUrl;
+        	return srObj().client.instanceUrl;
         }
 
    </script>
