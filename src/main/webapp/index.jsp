@@ -19,10 +19,9 @@
                      var obj = JSON.parse(Sfdc.canvas.decode(part));
 		     document.getElementById("case_number_VF").innerHTML  = obj.context.environment.record.CaseNumber;
 		     caseId = obj.context.environment.record.Id;
-         	var caseUri = obj.context.links.sobjectUrl + "Case/"+caseId;
-         	var siebelRMANum = $("#RMA_Siebel_Num").val();
-         	alert(siebelRMANum);
-         	alert($("#RMA_Siebel_Num").text());
+         	     var caseUri = obj.context.links.sobjectUrl + "Case/"+caseId;
+         	     var siebelRMANum = document.getElementById("RMA_Siebel_Num");
+         	     alert(siebelRMANum);
          	var body = {"siebelRMANum__c":siebelRMANum};
         	Sfdc.canvas.client.ajax(caseUri,{
         	     client : obj.client,
