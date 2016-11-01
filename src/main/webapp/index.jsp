@@ -18,8 +18,11 @@
   			if(data.status == 200){
   			var signedRequest = data.payload.response;
   		       	var part = signedRequest.split('.')[1];
+  		       	alert(signedRequest);
+  		       	alert(part);
+  		       	alert("JSON"+JSON.parse(Sfdc.canvas.decode(part)));
   		        return JSON.parse(Sfdc.canvas.decode(part));
-  		        alert("JSON"+JSON.parse(Sfdc.canvas.decode(part)));
+  		        
  			}	
 		}
 		);
