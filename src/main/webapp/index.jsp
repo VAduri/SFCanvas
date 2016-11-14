@@ -12,7 +12,7 @@
   
   Sfdc.canvas(function(){
 	  var loggedIn = Sfdc.canvas.oauth.loggedin();
-    	  login.addEventListener("click" , cnv.login);
+    	  login.onclick = cnv.login;
   });
   
   var cnv = (function(storage) {
