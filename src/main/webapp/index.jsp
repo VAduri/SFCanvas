@@ -19,6 +19,7 @@
 	  var loggedIn = Sfdc.canvas.oauth.loggedin();
     if (loggedIn) {
       Sfdc.canvas.client.repost({refresh : true});
+      Sfdc.canvas.byId("oauths").innerHTML = Sfdc.canvas.oauth.token();
     }
 		login.addEventListener("click" , cnv.login);
   });
@@ -265,6 +266,7 @@
     function login() {
   		console.log('foo');
   		loginAction();
+  		
   	}
   
     function logout(loginPage) {
@@ -279,7 +281,7 @@
   	}
   
     function refresh(){
-  		window.location.assign('/index.html#/Overview');
+  		//window.location.assign('/index.html#/Overview');
       //Sfdc.canvas.oauth.childWindowUnloadNotification(hash);
   	}
   
@@ -345,12 +347,22 @@
 </script>
 
 <div id="oauth">
+      <h1>Venkata Aduri OAuth2.0 Play ground Example</h1>
       <h2 class="sub-title">User Authentication Required</h2>
 </div>
 <br>
 <div class="button-wrapper oauth">
   <button id="login">authorize app</button>
 </div>
+
+    <div>access_token</div>
+    <textarea id="oauths" rows="2" cols="80" disabled="true"></textarea>
+    <div>
+      <a id="login" href="#">Login</a><br/>
+      <a id="profile" href="#">My Chatter Profile</a><br />
+    </div>
+    <textarea id="chatter_profile" rows="20" cols="80"></textarea>
+
 
 </body>
 
