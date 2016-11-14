@@ -5,13 +5,9 @@
 <script type="text/javascript">
     //notify parent window we're authorized
     try {
-      if(window.opener.cnv) {
-        window.opener.cnv.refresh();
-      }
-      else {
-        //cnv should be there, but use the standard canvas function as a fallback
-        window.opener.Sfdc.canvas.oauth.childWindowUnloadNotification(self.location.hash);
-      }
+          window.opener.Sfdc.canvas.oauth.childWindowUnloadNotification(self.location.hash);
+      	  console.log("Jammala");
+      	}
     } catch (ignore) {}
     self.close();
 </script>
