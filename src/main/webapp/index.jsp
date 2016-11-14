@@ -3,7 +3,7 @@
 <head>
 
 	<script type="text/javascript" src="/resources/canvas-all.js" </script>
-	<script type="text/javascript" src="/resources/canvas-starter.js" </script>
+	
 </head>
 
 <body>
@@ -324,11 +324,7 @@
 <div id="oauth">
       <h1>OAuth2.0 User Agent Flow Siebel Play ground Example</h1>
 </div>
-<br>
-<div>
-  <button id="login">authorize app</button>
-</div>
-<br>
+
 <div>access_token</div>
 <textarea id="oauths" rows="2" cols="80" disabled="true"></textarea>
 <br>
