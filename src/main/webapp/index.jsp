@@ -2,26 +2,17 @@
 <html>
 <head>
 
-		<!--build-css-start-->
-	  <link rel="stylesheet" href="/resources/canvas-starter-styles.css" type="text/css">
-	 <link rel="stylesheet" href="/resources/salesforce-lightning-design-system.css" type="text/css">
-		<!--build-css-end-->
-				
 	<script type="text/javascript" src="/resources/canvas-all.js" </script>
 	<script type="text/javascript" src="/resources/canvas-starter.js" </script>
-       
-
 </head>
 
 <body>
+
 <script>
+  
   Sfdc.canvas(function(){
 	  var loggedIn = Sfdc.canvas.oauth.loggedin();
-    if (loggedIn) {
-      Sfdc.canvas.client.repost({refresh : true});
-      Sfdc.canvas.byId("oauths").innerHTML = Sfdc.canvas.oauth.token();
-    }
-		login.addEventListener("click" , cnv.login);
+    	  login.addEventListener("click" , cnv.login);
   });
   
   var cnv = (function(storage) {
@@ -264,7 +255,7 @@
   	}
   
     function login() {
-  		console.log('foo');
+  		console.log('Entering Login');
   		loginAction();
   		
   	}
@@ -285,24 +276,17 @@
       //Sfdc.canvas.oauth.childWindowUnloadNotification(hash);
   	}
   
-    //private functions
+    
   
-  	function loginAction(consumerData) {
-  
-      var url;
-  		//retrieve our key if we don't have it
-  		//if(!consumerData) {
-  		//	getConsumerData(loginAction);
-  		//	return;
-  		//}
-  
-      //remove all currebt access tokens
-  		logout();
-  
-  		//if loginUrl is a parameter, then we're in the oauth page and can use the parameter to determine our target
+  	function loginAction() {
+  	      var url;
+	    //remove all currebt access tokens
+ 	    logout();
+  	    //if loginUrl is a parameter, then we're in the oauth page and can use the parameter to determine our target
   		var params = decodeURIComponent(location.search);
   		if(params.indexOf('loginUrl')!==-1){
-        url = decodeURIComponent(location.search.split("=")[1]);
+        	url = decodeURIComponent(location.search.split("=")[1]);
+        	console.log('This is UA OAuth*****');
   		}
   		else {
   			//determine the url from the signed request
@@ -324,45 +308,36 @@
   					client_id : "3MVG9fMtCkV6eLhewNBSKP0dVejMNrlQsYj_PdSNpcHDgREfyID_pBQZwlobe.Em_HERDw1Stb0IW7bEI75RT",
   					redirect_uri : encodeURIComponent("https://lit-cliffs-39463.herokuapp.com/callback.jsp")
   			}});
+  	
+  	  	  if (loggedIn) {
+	    	    Sfdc.canvas.client.repost({refresh : true});
+	    	    Sfdc.canvas.byId("oauths").innerHTML = Sfdc.canvas.oauth.token();
+	    	    console.log('Populating Access Token*****');
+	    	  }
+  
+  	
   	}
   
-  	function getConsumerData(callback) {
-  		var result;
-      var request = new XMLHttpRequest();
-  		request.open('GET','/php/consumerData.php');
-  		//request.setRequestHeader('Content-Type','text/plain;charset=UTF-8');
-  		request.onreadystatechange = function(){
-  			if(request.readyState===4 && request.status===200) {
-  				result=JSON.parse(request.responseText);
-  				callback(result);
-  			}
-  		};
-  		request.send(null);
-  	}
-  
-  }(
-  	//settings session storage for the signed request, etc.
-  	{}
-));
+  	
 </script>
 
 <div id="oauth">
-      <h1>Venkata Aduri OAuth2.0 Play ground Example</h1>
-      <h2 class="sub-title">User Authentication Required</h2>
+      <h1>OAuth2.0 User Agent Flow Siebel Play ground Example</h1>
 </div>
 <br>
-<div class="button-wrapper oauth">
+<div>
   <button id="login">authorize app</button>
 </div>
-
-    <div>access_token</div>
-    <textarea id="oauths" rows="2" cols="80" disabled="true"></textarea>
-    <div>
+<br>
+<div>access_token</div>
+<textarea id="oauths" rows="2" cols="80" disabled="true"></textarea>
+<br>
+<div>
       <a id="login" href="#">Login</a><br/>
       <a id="profile" href="#">My Chatter Profile</a><br />
-    </div>
-    <textarea id="chatter_profile" rows="20" cols="80"></textarea>
-
+ </div>
+ <br>
+ <textarea id="chatter_profile" rows="20" cols="80"></textarea>
 
 </body>
 
