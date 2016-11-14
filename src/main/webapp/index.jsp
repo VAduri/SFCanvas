@@ -29,12 +29,14 @@ function profileHandler(e) {
        }
        alert("Payload: ", msg.payload);
     }
-                
-    var ctxlink = Sfdc.canvas.byId("ctxlink");
-    var client = Sfdc.canvas.oauth.client();
-    ctxlink.onclick=function() {
-       Sfdc.canvas.client.ctx(callback, client)};
+      
+    function contextHandler()
+    {
+    	var ctxlink = Sfdc.canvas.byId("ctxlink");
+	var client = Sfdc.canvas.oauth.client();
+    	Sfdc.canvas.client.ctx(callback, client);
     }
+    
 function loginHandler(e) {
   var uri;
   if (!Sfdc.canvas.oauth.loggedin()) {
@@ -59,6 +61,7 @@ Sfdc.canvas(function() {
     profile.onclick = profileHandler;
   }
   login.onclick = loginHandler;
+  ctxlink.onclick=contextHandler;
 });
 </script>
     <h1>Venkata Aduri OAuth2.0 Play ground Example</h1>
