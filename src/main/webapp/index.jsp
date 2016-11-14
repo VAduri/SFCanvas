@@ -22,6 +22,19 @@ function profileHandler(e) {
     }
   });
 }
+    function callback(msg) {
+       if (msg.status !== 200) {
+          alert("Error: " + msg.status);
+          return;
+       }
+       alert("Payload: ", msg.payload);
+    }
+                
+    var ctxlink = Sfdc.canvas.byId("ctxlink");
+    var client = Sfdc.canvas.oauth.client();
+    ctxlink.onclick=function() {
+       Sfdc.canvas.client.ctx(callback, client)};
+    }
 function loginHandler(e) {
   var uri;
   if (!Sfdc.canvas.oauth.loggedin()) {
@@ -56,6 +69,8 @@ Sfdc.canvas(function() {
       <a id="profile" href="#">My Chatter Profile</a><br />
     </div>
     <textarea id="chatter_profile" rows="20" cols="80"></textarea>
+    
+<a id="ctxlink" href="#">Get Context</a>
   </body>
 </html>
 
