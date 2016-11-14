@@ -3,12 +3,12 @@
 <head>
 
 		<!--build-css-start-->
-	  <link rel="stylesheet" href="salesforce-lightning-design-system.css" />
-		<link rel="stylesheet" href="canvas-starter-styles.css" />
+	  <link rel="stylesheet" href="src/main/webapp/salesforce-lightning-design-system.css" />
+		<link rel="stylesheet" href="src/main/webapp/canvas-starter-styles.css" />
 		<!--build-css-end-->
 
-		<script src="canvas-all.js"></script>
-		<script src="canvas-starter.js"></script>
+		<script src="src/main/webapp/canvas-all.js"></script>
+		<script src="src/main/webapp/canvas-starter.js"></script>
 
 </head>
 
