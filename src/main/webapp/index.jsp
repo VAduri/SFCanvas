@@ -27,7 +27,7 @@ function profileHandler(e) {
           alert("Error: " + msg.status);
           return;
        }
-       alert("Payload: ", msg.payload);
+       alert("Payload: ", msg);
     }
       
     function contextHandler()
