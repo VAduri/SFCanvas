@@ -289,10 +289,10 @@
   
       var url;
   		//retrieve our key if we don't have it
-  		if(!consumerData) {
-  			getConsumerData(loginAction);
-  			return;
-  		}
+  		//if(!consumerData) {
+  		//	getConsumerData(loginAction);
+  		//	return;
+  		//}
   
       //remove all currebt access tokens
   		logout();
@@ -319,8 +319,8 @@
   			{uri : url,
   				params: {
   					response_type : "token",
-  					client_id : consumerData.key,
-  					redirect_uri : encodeURIComponent(consumerData.url)
+  					client_id : "3MVG9fMtCkV6eLhewNBSKP0dVejMNrlQsYj_PdSNpcHDgREfyID_pBQZwlobe.Em_HERDw1Stb0IW7bEI75RT",
+  					redirect_uri : encodeURIComponent("https://lit-cliffs-39463.herokuapp.com")
   			}});
   	}
   
