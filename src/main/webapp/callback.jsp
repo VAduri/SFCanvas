@@ -6,9 +6,8 @@
     //notify parent window we're authorized
     try {
           window.opener.Sfdc.canvas.oauth.childWindowUnloadNotification(self.location.hash);
-      	  console.log("Jammala");
       	}
-    } catch (ignore) {}
+     catch (ignore) {}
     self.close();
 </script>
 </head>
