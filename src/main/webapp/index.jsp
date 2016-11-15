@@ -802,11 +802,10 @@ function loginHandler(e) {
         redirect_uri : encodeURIComponent("https://lit-cliffs-39463.herokuapp.com/callback.jsp")
       }
     }
-    if(Sfdc.canvas.oauth.loggedin()){
-      	  Sfdc.canvas.client.ctx(callback, Sfdc.canvas.oauth.client());
-	}
     );
-  }
+ 
+ 
+ }
   
   return false;
 }
@@ -817,6 +816,10 @@ Sfdc.canvas(function() {
     Sfdc.canvas.byId("oauth").innerHTML = Sfdc.canvas.oauth.token();
     var profile = Sfdc.canvas.byId("profile");
     profile.onclick = profileHandler;
+  
+          	  Sfdc.canvas.client.ctx(callback, Sfdc.canvas.oauth.client());
+    
+ 
   }
   login.onclick = loginHandler;
   ctxlink.onclick=contextHandler;
