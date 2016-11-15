@@ -164,7 +164,7 @@
                          * @example
                          * // Subscribe to the parent window onscroll event.
                          * Sfdc.canvas(function() {
-                         *     sr = JSON.parse('<%=signedRequestJson%>');
+                         *     sr = JSON.parse('');
                          *     // Capture the onScrolling event of the parent window.
                          *     Sfdc.canvas.client.subscribe(sr.client,
                          *          {name : 'canvas.scroll', onData : function (event) {
@@ -181,7 +181,7 @@
                          * @example
                          * // Subscribe to a custom event.
                          * Sfdc.canvas(function() {
-                         *     sr = JSON.parse('<%=signedRequestJson%>');
+                         *     sr = JSON.parse('');
                          *     Sfdc.canvas.client.subscribe(sr.client,
                          *         {name : 'mynamespace.someevent', onData : function (event) {
                          *             console.log("Got custom event ",  event);
@@ -192,7 +192,7 @@
                          * @example
                          * // Subscribe to multiple events
                          * Sfdc.canvas(function() {
-                         *     sr = JSON.parse('<%=signedRequestJson%>');
+                         *     sr = JSON.parse('');
                          *     Sfdc.canvas.client.subscribe(sr.client, [
                          *         {name : 'mynamespace.someevent1', onData : handler1},
                          *         {name : 'mynamespace.someevent2', onData : handler2},
@@ -205,7 +205,7 @@
                          * //The 'onComplete' method may be defined,
                          * //and will fire when the subscription is complete.
                          * Sfdc.canvas(function() {
-                         *     sr = JSON.parse('<%=signedRequestJson%>');
+                         *     sr = JSON.parse('');
                          *     var handler1 = function(){ console.log("onData done");},
                          *     handler2 = function(){ console.log("onComplete done");};
                          *     Sfdc.canvas.client.subscribe(sr.client,
@@ -261,21 +261,21 @@
                          * @example
                          * //Unsubscribe from the canvas.scroll method.
                          * Sfdc.canvas(function() {
-                         *     sr = JSON.parse('<%=signedRequestJson%>');
+                         *     sr = JSON.parse('');
                          *     Sfdc.canvas.client.unsubscribe(sr.client, "canvas.scroll");
                          *});
                          *
                          * @example
                          * //Unsubscribe from the canvas.scroll method by specifying the object name.
                          * Sfdc.canvas(function() {
-                         *     sr = JSON.parse('<%=signedRequestJson%>');
+                         *     sr = JSON.parse('');
                          *     Sfdc.canvas.client.unsubscribe(sr.client, {name : "canvas.scroll"});
                          *});
                          *
                          * @example
                          * //Unsubscribe from multiple events.
                          * Sfdc.canvas(function() {
-                         *     sr = JSON.parse('<%=signedRequestJson%>');
+                         *     sr = JSON.parse('');
                          *     Sfdc.canvas.client.unsubscribe(sr.client, ['canvas.scroll', 'foo.bar']);
                          *});
                          *
@@ -283,7 +283,7 @@
                          * //Unsubscribe from Streaming API events.
                          * //The PushTopic to unsubscribe from  must be passed in.
                          * Sfdc.canvas(function() {
-                         *     sr = JSON.parse('<%=signedRequestJson%>');
+                         *     sr = JSON.parse('');
                          *     Sfdc.canvas.client.unsubscribe(sr.client, {name : 'sfdc.streamingapi',
                          *               params:{topic:"/topic/InvoiceStatements"}});
                          *});
@@ -337,7 +337,7 @@
                          * @example
                          * // Publish the foo.bar event with the specified payload.
                          * Sfdc.canvas(function() {
-                         *     sr = JSON.parse('<%=signedRequestJson%>');
+                         *     sr = JSON.parse('');
                          *     Sfdc.canvas.client.publish(sr.client,
                          *         {name : "foo.bar", payload : {some : 'stuff'}});
                          *});
@@ -404,7 +404,7 @@
                          * @throws An error if the URL is missing or the settings object doesn't contain a success callback function.
                          * @example
                          * //Posting to a Chatter feed:
-                         * var sr = JSON.parse('<%=signedRequestJson%>');
+                         * var sr = JSON.parse('');
                          * var url = sr.context.links.chatterFeedsUrl+"/news/"
                          *                                   +sr.context.user.userId+"/feed-items";
                          * var body = {body : {messageSegments : [{type: "Text", text: "Some Chatter Post"}]}};
@@ -422,7 +422,7 @@
                          * @example
                          * // Gets a list of Chatter users:
                          * // Paste the signed request string into a JavaScript object for easy access.
-                         * var sr = JSON.parse('<%=signedRequestJson%>');
+                         * var sr = JSON.parse('');
                          * // Reference the Chatter user's URL from Context.Links object.
                          * var chatterUsersUrl = sr.context.links.chatterUsersUrl;
                          *
@@ -635,21 +635,21 @@
                          * @example
                          * //Automatically determine the size
                          * Sfdc.canvas(function() {
-                         *     sr = JSON.parse('<%=signedRequestJson%>');
+                         *     sr = JSON.parse('');
                          *     Sfdc.canvas.client.resize(sr.client);
                          * });
                          *
                          * @example
                          * //Set the height and width explicitly
                          * Sfdc.canvas(function() {
-                         *     sr = JSON.parse('<%=signedRequestJson%>');
+                         *     sr = JSON.parse('');
                          *     Sfdc.canvas.client.resize(sr.client, {height : "1000px", width : "900px"});
                          * });
                          *
                          * @example
                          * //Set only the height
                          * Sfdc.canvas(function() {
-                         *     sr = JSON.parse('<%=signedRequestJson%>');
+                         *     sr = JSON.parse('');
                          *     Sfdc.canvas.client.resize(sr.client, {height : "1000px"});
                          * });
                          *
@@ -700,19 +700,19 @@
                          *
                          * // Turn on auto grow with default settings.
                          * Sfdc.canvas(function() {
-                         *     sr = JSON.parse('<%=signedRequestJson%>');
+                         *     sr = JSON.parse('');
                          *     Sfdc.canvas.client.autogrow(sr.client);
                          * });
                          *
                          * // Turn on auto grow with a polling interval of 100ms (milliseconds).
                          * Sfdc.canvas(function() {
-                         *     sr = JSON.parse('<%=signedRequestJson%>');
+                         *     sr = JSON.parse('');
                          *     Sfdc.canvas.client.autogrow(sr.client, true, 100);
                          * });
                          *
                          * // Turn off auto grow.
                          * Sfdc.canvas(function() {
-                         *     sr = JSON.parse('<%=signedRequestJson%>');
+                         *     sr = JSON.parse('');
                          *     Sfdc.canvas.client.autogrow(sr.client, false);
                          * });
                          */
