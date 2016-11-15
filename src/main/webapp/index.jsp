@@ -787,9 +787,7 @@ function profileHandler(e) {
       
     function contextHandler()
     {
-    	var ctxlink = Sfdc.canvas.byId("ctxlink");
-	var client = Sfdc.canvas.oauth.client();
-    	Sfdc.canvas.client.ctx(callback, client);
+    	Sfdc.canvas.client.ctx(callback, Sfdc.canvas.oauth.client());
     }
     
 function loginHandler(e) {
