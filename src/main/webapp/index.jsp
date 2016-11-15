@@ -782,7 +782,7 @@ function profileHandler(e) {
           alert("Error: " + msg.status);
           return;
        }
-       alert("Payload: ", msg);
+       alert("Payload: ", msg.payload);
     }
       
     function contextHandler()
@@ -803,6 +803,9 @@ function loginHandler(e) {
       }
     });
   }
+  if(Sfdc.canvas.oauth.loggedin()){
+  	  Sfdc.canvas.client.ctx(callback, Sfdc.canvas.oauth.client());
+	}
   return false;
 }
 Sfdc.canvas(function() {
