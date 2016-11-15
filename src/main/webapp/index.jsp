@@ -1,7 +1,13 @@
 <html>
   <head>
   <script type="text/javascript"
-    src="https://na16.salesforce.com/canvas/sdk/js/38.0/canvas-all.js">
+    src="resources/canvas-all.js">
+  </script>
+  <script type="text/javascript"
+      src="resources/client.js">
+  </script>
+  <script type="text/javascript"
+      src="resources/oauth.js">
   </script>
   </head>
   <body>
