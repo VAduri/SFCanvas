@@ -1,17 +1,10 @@
 <html>
   <head>
   <script type="text/javascript"
-    src="/resources/canvas-all.js">
+    src="/resources/canvas-all.js,/resources/client.js,/resources/oauth.js">
   </script>
   
-  <script type="text/javascript"
-        src="/resources/oauth.js">
-  </script>
-  
-  <script type="text/javascript"
-      src="/resources/client.js">
-  </script>
-  
+   
   </head>
   <body>
     <script>
