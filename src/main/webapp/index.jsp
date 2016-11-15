@@ -2,14 +2,7 @@
   <head>
   <script type="text/javascript"
     src="/resources/canvas-all.js">
-  </script>
-    <script type="text/javascript"
-       src="/resources/oauth.js">
-  </script>
-   <script type="text/javascript"
-      src="/resources/client.js">
-  </script>
-   
+     
   </head>
   <body>
     <script>
