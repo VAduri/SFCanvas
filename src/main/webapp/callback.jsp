@@ -8,7 +8,7 @@
           window.opener.Sfdc.canvas.oauth.childWindowUnloadNotification(self.location.hash);
       	}
      catch (ignore) {}
-    self.close();
+    //self.close();
 </script>
 </head>
 <body>
