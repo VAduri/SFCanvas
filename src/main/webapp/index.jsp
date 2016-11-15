@@ -801,11 +801,13 @@ function loginHandler(e) {
         client_id : "3MVG9fMtCkV6eLhewNBSKP0dVejMNrlQsYj_PdSNpcHDgREfyID_pBQZwlobe.Em_HERDw1Stb0IW7bEI75RT",
         redirect_uri : encodeURIComponent("https://lit-cliffs-39463.herokuapp.com/callback.jsp")
       }
-    });
-  }
-  if(Sfdc.canvas.oauth.loggedin()){
-  	  Sfdc.canvas.client.ctx(callback, Sfdc.canvas.oauth.client());
+    }
+    if(Sfdc.canvas.oauth.loggedin()){
+      	  Sfdc.canvas.client.ctx(callback, Sfdc.canvas.oauth.client());
 	}
+    );
+  }
+  
   return false;
 }
 Sfdc.canvas(function() {
