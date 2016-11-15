@@ -6,9 +6,10 @@
     //notify parent window we're authorized
     try {
           window.opener.Sfdc.canvas.oauth.childWindowUnloadNotification(self.location.hash);
+      	console.log("&&&&&%%%%######"+self.location.hash);
       	}
      catch (ignore) {}
-    //self.close();
+    self.close();
 </script>
 </head>
 <body>
