@@ -109,20 +109,26 @@ function callbacker(msg) {
         
 
 </script>
-    <h1>Venkata Aduri OAuth2.0 Play ground Example</h1>
+    <h1>Venkata Aduri OAuth2.0 SF to Siebel - Login, Chatter, SF to Siebel, Siebel to SF Updates</h1>
     <div>access_token</div>
     <textarea id="oauth" rows="2" cols="80" disabled="true"></textarea>
     <div>
       <a id="login" href="#">Login</a><br/>
-      <a id="profile" href="#">My Chatter Profile</a><br />
+      <a id="profile" href="#">My Chatter Profile</a><br/>
     </div>
-    <textarea id="chatter_profile" rows="20" cols="80"></textarea>
-     <label><b>SF Case Number from SF on Siebel Page</b></label>
-       <textarea id="case_number_VF" rows="1" value="test" cols="10"></textarea><br><br><br>
-       <button id="CopyRMAToSF"> TO SF</button><br>
-       <label><b>Siebel RMA# from Siebel on Siebel Page</b></label>
-   <textarea id="RMA_Siebel_Num" value="87878778" rows="1" cols="10">1111111</textarea>
-<a id="ctxlink" href="#">Get Context</a>
+    <textarea id="chatter_profile" rows="20" cols="80"></textarea><br />
+    <div>
+     <label><b>SF to Siebel: Case Number</b></label><br/>
+      <textarea id="case_number_VF" rows="1" value="test" cols="10"></textarea><br/>
+   </div>
+<div>
+       <button id="CopyRMAToSF"> Update SF Case</button><br/>
+       <label><b>Siebel to SF: RMA#</b></label> <br/>
+      <textarea id="RMA_Siebel_Num" value="87878778" rows="1" cols="10">1111111</textarea><br/>
+</div>
+<div>
+ <a id="ctxlink" href="#">Get Context</a><br/>
+ </div>
   </body>
 </html>
 
