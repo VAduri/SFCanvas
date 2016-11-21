@@ -40,7 +40,10 @@ function profileHandler(e) {
     	
     }
       
-
+ function contextHandler()
+    {
+    	Sfdc.canvas.client.ctx(callback, Sfdc.canvas.oauth.client());
+    }
     
 function loginHandler(e) {
   var uri;
