@@ -785,6 +785,8 @@ function profileHandler(e) {
        alert(JSON.stringify(msg));
        var sr = JSON.parse(JSON.stringify(msg));
        alert(sr);
+       console.log(sr);
+       console.log(sr.environment.record.CaseNumber);
        document.getElementById("case_number_VF").innerHTML  = sr.environment.record.CaseNumber;
        
     }
