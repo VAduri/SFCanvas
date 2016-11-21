@@ -782,9 +782,9 @@ function profileHandler(e) {
           alert("Error: " + msg.status);
           return;
        }
-       console.log(JSON.stringify(msg));
-       console.log(JSON.stringify(msg.payload));
-       alert(JSON.stringify(msg));
+       sr = JSON.parse(msg);
+       alert(sr);
+       document.getElementById("case_number_VF").innerHTML  = sr.context.environment.record.CaseNumber;
        
     }
       
@@ -836,7 +836,11 @@ Sfdc.canvas(function() {
       <a id="profile" href="#">My Chatter Profile</a><br />
     </div>
     <textarea id="chatter_profile" rows="20" cols="80"></textarea>
-    
+     <label><b>SF Case Number from SF on Siebel Page</b></label>
+       <textarea id="case_number_VF" rows="1" value="test" cols="10"></textarea><br><br><br>
+       <button id="CopyRMAToSF"> TO SF</button><br>
+       <label><b>Siebel RMA# from Siebel on Siebel Page</b></label>
+   <textarea id="RMA_Siebel_Num" value="87878778" rows="1" cols="10">1111111</textarea>
 <a id="ctxlink" href="#">Get Context</a>
   </body>
 </html>
