@@ -782,7 +782,10 @@ function profileHandler(e) {
           alert("Error: " + msg.status);
           return;
        }
-       alert(msg);
+       console.log(JSON.stringify(msg));
+       console.log(JSON.stringify(msg.payload));
+       alert(JSON.stringify(msg));
+       
     }
       
     function contextHandler()
