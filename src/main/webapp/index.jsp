@@ -777,19 +777,13 @@ function profileHandler(e) {
     }
   });
 }
-    var sr="";
+    
     function callback(msg) {
        if (msg.status !== 200) {
           alert("Error: " + msg.status);
           return;
        }
-       alert(JSON.stringify(msg));
-       sr = JSON.parse(JSON.stringify(msg));
-       alert(sr);
-       console.log(sr);
-       console.log(sr.environment);
-       console.log(sr.environment.record.CaseNumber);
-       document.getElementById("case_number_VF").innerHTML  = sr.environment.record.CaseNumber;
+       document.getElementById("case_number_VF").innerHTML  = msg.payload.environment.record.CaseNumber;
     }
       
     function contextHandler()
