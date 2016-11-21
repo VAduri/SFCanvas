@@ -29,18 +29,18 @@ function profileHandler(e) {
   });
 }
     
+   
+    
     function callback(msg) {
        if (msg.status !== 200) {
           alert("Error: " + msg.status);
           return;
        }
        document.getElementById("case_number_VF").innerHTML  = msg.payload.environment.record.CaseNumber;
+    	
     }
       
-    function contextHandler()
-    {
-    	Sfdc.canvas.client.ctx(callback, Sfdc.canvas.oauth.client());
-    }
+
     
 function loginHandler(e) {
   var uri;
@@ -69,12 +69,42 @@ Sfdc.canvas(function() {
     var profile = Sfdc.canvas.byId("profile");
     profile.onclick = profileHandler;
     Sfdc.canvas.client.ctx(callback, Sfdc.canvas.oauth.client());
-    
- 
   }
   login.onclick = loginHandler;
   ctxlink.onclick=contextHandler;
+  CopyRMAToSF.onclick=updateHandler;
 });
+
+
+function callbacker(msg) {
+       if (msg.status !== 200) {
+          alert("Error: " + msg.status);
+          return;
+       }
+      
+       var siebelRMANum = document.getElementById("RMA_Siebel_Num").innerHTML;
+       var body = {"siebelRMANum__c":siebelRMANum};
+       		Sfdc.canvas.client.ajax(msg.payload.links.sobjectUrl + "Case/"+msg.payload.environment.record.Id,{
+       		        	     	client : Sfdc.canvas.oauth.client(),
+       			             	method: "PATCH",
+       		                     	contentType: "application/json",
+       			             	data:JSON.stringify(body),
+       			             	success : function() {
+       				     	   alert("SFDC Case:"+JSON.stringify(msg.payload.environment.record.CaseNumber)+"Updated with Siebel RMA Number:"+siebelRMANum);                         
+       			             	} ,
+       				     	error: function() {
+       				     	    alert("Error Occured updating Siebel RMA# to SFDC");
+       				     	}
+                  			});
+    }
+
+
+	function updateHandler(){
+        	Sfdc.canvas.client.ctx(callbacker, Sfdc.canvas.oauth.client());
+        }
+        
+        
+
 </script>
     <h1>Venkata Aduri OAuth2.0 Play ground Example</h1>
     <div>access_token</div>
