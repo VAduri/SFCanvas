@@ -784,7 +784,7 @@ function profileHandler(e) {
           return;
        }
        alert(JSON.stringify(msg));
-       var sr = JSON.parse(JSON.stringify(msg));
+       sr = JSON.parse(JSON.stringify(msg));
        alert(sr);
        console.log(sr);
        console.log(sr.environment);
@@ -823,8 +823,7 @@ Sfdc.canvas(function() {
     Sfdc.canvas.byId("oauth").innerHTML = Sfdc.canvas.oauth.token();
     var profile = Sfdc.canvas.byId("profile");
     profile.onclick = profileHandler;
-  
-          	  Sfdc.canvas.client.ctx(callback, Sfdc.canvas.oauth.client());
+    Sfdc.canvas.client.ctx(callback, Sfdc.canvas.oauth.client());
     
  
   }
