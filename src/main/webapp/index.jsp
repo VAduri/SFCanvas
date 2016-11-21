@@ -782,9 +782,12 @@ function profileHandler(e) {
           alert("Error: " + msg.status);
           return;
        }
-       sr = JSON.parse(msg);
+       var sr = JSON.parse(msg);
+       alert(JSON.stringify(sr));
        alert(sr);
-       document.getElementById("case_number_VF").innerHTML  = sr.context.environment.record.CaseNumber;
+       alert(sr.environment.record.CaseNumber);
+       alert(JSON.stringify(sr.environment.record.CaseNumber));
+       document.getElementById("case_number_VF").innerHTML  = sr.environment.record.CaseNumber;
        
     }
       
