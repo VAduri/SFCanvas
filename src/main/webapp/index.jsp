@@ -91,7 +91,7 @@ function callbacker(msg) {
        var siebelRMANum = document.getElementById("RMA_Siebel_Num").innerHTML;
        var body = {"siebelRMANum__c":siebelRMANum};
        		Sfdc.canvas.client.ajax(msg.payload.links.sobjectUrl + "Case/"+msg.payload.environment.record.Id,{
-       		        	     	client : Sfdc.canvas.oauth.client(),
+       		        	     	client : {oauthToken :Sfdc.canvas.oauth.client().oauthToken,instanceId :"_:Venkata_Heroku_OAuth:j_id0:j_id1:canvasapp",targetOrigin :"https://na16.salesforce.com"},
        			             	method: "PATCH",
        		                     	contentType: "application/json",
        			             	data:JSON.stringify(body),
