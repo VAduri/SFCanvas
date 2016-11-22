@@ -68,12 +68,13 @@ function oauthshandler()
     	 Sfdc.canvas.byId("oauth").innerHTML = Sfdc.canvas.oauth.token();
     }
 
-window.load=loginHandler;
+window.load=x;
 
 var x = Sfdc.canvas(function() {
   var login = Sfdc.canvas.byId("login");
   var oauths = Sfdc.canvas.byId("access_token");
   var login = Sfdc.canvas.byId("login");
+  loginHandler();
   var loggedIn = Sfdc.canvas.oauth.loggedin();
   if (loggedIn) {
     Sfdc.canvas.client.ctx(callback, Sfdc.canvas.oauth.client());
