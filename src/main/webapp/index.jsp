@@ -14,7 +14,7 @@
    
 function profileHandler(e) {
   var profileUrl = Sfdc.canvas.oauth.instance() +
-    "/services/data/v28.0/chatter/users/me";
+    "/services/data/v38.0/chatter/users/me";
   Sfdc.canvas.client.ajax(profileUrl, {
     client: Sfdc.canvas.oauth.client(),
     failure: function(data) {
@@ -37,6 +37,9 @@ function profileHandler(e) {
           return;
        }
        document.getElementById("case_number_VF").innerHTML  = msg.payload.environment.record.CaseNumber;
+       console.log(Sfdc.canvas.oauth.client());
+       console.log(JSON.stringify(Sfdc.canvas.oauth.client()));
+      alert(JSON.stringify(Sfdc.canvas.oauth.client()));
     	
     }
       
