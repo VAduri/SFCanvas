@@ -70,6 +70,9 @@ function oauthshandler()
     	 Sfdc.canvas.byId("oauth").innerHTML = Sfdc.canvas.oauth.token();
     }
 
+var login = Sfdc.canvas.byId("login");
+login.onload = loginHandler;
+
 Sfdc.canvas(function() {
   
   var login = Sfdc.canvas.byId("login");
@@ -80,7 +83,7 @@ Sfdc.canvas(function() {
  var profile = Sfdc.canvas.byId("profile");
  var oauths = Sfdc.canvas.byId("access_token");
  profile.onclick = profileHandler;
-  login.onload = loginHandler;
+  
   oauths.onclick=oauthshandler;
   ctxlink.onclick=contextHandler;
   CopyRMAToSF.onclick=updateHandler;
