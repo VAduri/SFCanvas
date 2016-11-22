@@ -16,7 +16,7 @@ function profileHandler(e) {
   var profileUrl = Sfdc.canvas.oauth.instance() +
     "/services/data/v38.0/chatter/users/me";
   Sfdc.canvas.client.ajax(profileUrl, {
-    client: Sfdc.canvas.oauth.client(),
+    client: {oauthToken :Sfdc.canvas.oauth.client().oauthToken,instanceId :"_:Venkata_Heroku_OAuth:j_id0:j_id1:canvasapp",targetOrigin :"https://na16.salesforce.com"},
     failure: function(data) {
       alert(data);
     },
