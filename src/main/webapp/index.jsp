@@ -78,6 +78,7 @@ Sfdc.canvas(function() {
     Sfdc.canvas.client.ctx(callback, Sfdc.canvas.oauth.client());
   }
  var profile = Sfdc.canvas.byId("profile");
+ var oauths = Sfdc.canvas.byId("access_token");
  profile.onclick = profileHandler;
   login.onclick = loginHandler;
   oauths.onclick=oauthshandler;
@@ -117,7 +118,10 @@ function callbacker(msg) {
 
 </script>
     <h1>Venkata Aduri OAuth2.0 SF to Siebel - Login, Chatter, SF to Siebel, Siebel to SF Updates</h1>
-    <div>access_token</div>
+    <div>
+          <a id="access_token" href="#">User Agent based OAuth2.0 Access Token</a><br/>
+          
+    </div>
     <textarea id="oauth" rows="2" cols="80" disabled="true"></textarea>
     <div>
       <a id="login" href="#">Login</a><br/>
