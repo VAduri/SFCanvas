@@ -39,7 +39,7 @@ function profileHandler(e) {
        document.getElementById("case_number_VF").innerHTML  = msg.payload.environment.record.CaseNumber;
        console.log(Sfdc.canvas.oauth.client());
        console.log(JSON.stringify(Sfdc.canvas.oauth.client()));
-      alert(JSON.stringify(Sfdc.canvas.oauth.client()));
+     // alert(JSON.stringify(Sfdc.canvas.oauth.client()));
     	
     }
       
@@ -80,7 +80,7 @@ Sfdc.canvas(function() {
  var profile = Sfdc.canvas.byId("profile");
  var oauths = Sfdc.canvas.byId("access_token");
  profile.onclick = profileHandler;
-  login.onclick = loginHandler;
+  login.onload = loginHandler;
   oauths.onclick=oauthshandler;
   ctxlink.onclick=contextHandler;
   CopyRMAToSF.onclick=updateHandler;
@@ -104,7 +104,7 @@ function callbacker(msg) {
        				     	   //alert("SFDC Case:"+JSON.stringify(msg.payload.environment.record.CaseNumber)+"Updated with Siebel RMA Number:"+siebelRMANum);                         
        			             	} ,
        				     	error: function() {
-       				     	    alert("Error Occured updating Siebel RMA# to SFDC");
+       				     	    //alert("Error Occured updating Siebel RMA# to SFDC");
        				     	}
                   			});
     }
