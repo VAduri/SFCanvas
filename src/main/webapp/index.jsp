@@ -76,8 +76,6 @@ Sfdc.canvas(function() {
   var login = Sfdc.canvas.byId("login");
   var loggedIn = Sfdc.canvas.oauth.loggedin();
   if (loggedIn) {
-    oauths = ;
-    console.log("nonono"+oauths);
     Sfdc.canvas.client.ctx(callback, Sfdc.canvas.oauth.client());
   }
  var profile = Sfdc.canvas.byId("profile");
