@@ -9,7 +9,7 @@
       	console.log("&&&&&%%%%######"+self.location.hash);
       	}
      catch (ignore) {}
-    self.close();
+    //self.close();
 </script>
 </head>
 <body>
