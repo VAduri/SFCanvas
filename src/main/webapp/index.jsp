@@ -70,15 +70,16 @@ function oauthshandler()
     	 Sfdc.canvas.byId("oauth").innerHTML = oauths;
     }
 
-var oauths = Sfdc.canvas.byId("access_token");
+var oauths="";
 
 Sfdc.canvas(function() {
   var login = Sfdc.canvas.byId("login");
-
+  oauths = Sfdc.canvas.byId("access_token");
   var login = Sfdc.canvas.byId("login");
   var loggedIn = Sfdc.canvas.oauth.loggedin();
   if (loggedIn) {
-  oauths = Sfdc.canvas.oauth.token();
+    oauths = Sfdc.canvas.oauth.token();
+    console.log(oauths);
     Sfdc.canvas.client.ctx(callback, Sfdc.canvas.oauth.client());
   }
  var profile = Sfdc.canvas.byId("profile");
