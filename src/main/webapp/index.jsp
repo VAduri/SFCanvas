@@ -67,6 +67,7 @@ function loginHandler(e) {
 
 function oauthshandler()
     {
+    	 console.log("YENKATIIIIIIIII"+oauths);
     	 Sfdc.canvas.byId("oauth").innerHTML = oauths;
     }
 
@@ -79,7 +80,7 @@ Sfdc.canvas(function() {
   var loggedIn = Sfdc.canvas.oauth.loggedin();
   if (loggedIn) {
     oauths = Sfdc.canvas.oauth.token();
-    console.log(oauths);
+    console.log("nonono"+oauths);
     Sfdc.canvas.client.ctx(callback, Sfdc.canvas.oauth.client());
   }
  var profile = Sfdc.canvas.byId("profile");
