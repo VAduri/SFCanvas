@@ -61,22 +61,26 @@ function loginHandler(e) {
       }
     }
     );
- 
- 
  }
-  
   return false;
 }
+
+function oauthshandler()
+    {
+    	 Sfdc.canvas.byId("oauth").innerHTML = Sfdc.canvas.oauth.token();
+    }
+
 Sfdc.canvas(function() {
+  
   var login = Sfdc.canvas.byId("login");
   var loggedIn = Sfdc.canvas.oauth.loggedin();
   if (loggedIn) {
-    Sfdc.canvas.byId("oauth").innerHTML = Sfdc.canvas.oauth.token();
-    var profile = Sfdc.canvas.byId("profile");
-    profile.onclick = profileHandler;
     Sfdc.canvas.client.ctx(callback, Sfdc.canvas.oauth.client());
   }
+ var profile = Sfdc.canvas.byId("profile");
+ profile.onclick = profileHandler;
   login.onclick = loginHandler;
+  oauths.onclick=oauthshandler;
   ctxlink.onclick=contextHandler;
   CopyRMAToSF.onclick=updateHandler;
 });
