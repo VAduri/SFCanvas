@@ -38,8 +38,6 @@ function profileHandler(e) {
        }
        document.getElementById("case_number_VF").innerHTML  = msg.payload.environment.record.CaseNumber;
        console.log(Sfdc.canvas.oauth.client());
-       console.log(JSON.stringify(Sfdc.canvas.oauth.client()));
-     // alert(JSON.stringify(Sfdc.canvas.oauth.client()));
     	
     }
       
@@ -67,19 +65,18 @@ function loginHandler(e) {
 
 function oauthshandler()
     {
-    	 console.log("YENKATIIIIIIIII"+oauths);
-    	 Sfdc.canvas.byId("oauth").innerHTML = oauths;
+    	 Sfdc.canvas.byId("oauth").innerHTML = Sfdc.canvas.oauth.token();
     }
 
-var oauths="";
+
 
 Sfdc.canvas(function() {
   var login = Sfdc.canvas.byId("login");
-  oauths = Sfdc.canvas.byId("access_token");
+  var oauths = Sfdc.canvas.byId("access_token");
   var login = Sfdc.canvas.byId("login");
   var loggedIn = Sfdc.canvas.oauth.loggedin();
   if (loggedIn) {
-    oauths = Sfdc.canvas.oauth.token();
+    oauths = ;
     console.log("nonono"+oauths);
     Sfdc.canvas.client.ctx(callback, Sfdc.canvas.oauth.client());
   }
