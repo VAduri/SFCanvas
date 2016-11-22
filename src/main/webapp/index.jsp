@@ -67,23 +67,24 @@ function loginHandler(e) {
 
 function oauthshandler()
     {
-    	 Sfdc.canvas.byId("oauth").innerHTML = Sfdc.canvas.oauth.token();
+    	 Sfdc.canvas.byId("oauth").innerHTML = oauths;
     }
 
-var login = Sfdc.canvas.byId("login");
-login.onload = loginHandler;
+var oauths = Sfdc.canvas.byId("access_token");
 
 Sfdc.canvas(function() {
-  
+  var login = Sfdc.canvas.byId("login");
+
   var login = Sfdc.canvas.byId("login");
   var loggedIn = Sfdc.canvas.oauth.loggedin();
   if (loggedIn) {
+  oauths = Sfdc.canvas.oauth.token();
     Sfdc.canvas.client.ctx(callback, Sfdc.canvas.oauth.client());
   }
  var profile = Sfdc.canvas.byId("profile");
- var oauths = Sfdc.canvas.byId("access_token");
+ 
  profile.onclick = profileHandler;
-  
+  login.onclick = loginHandler;
   oauths.onclick=oauthshandler;
   ctxlink.onclick=contextHandler;
   CopyRMAToSF.onclick=updateHandler;
